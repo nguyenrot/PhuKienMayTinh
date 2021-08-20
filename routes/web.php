@@ -25,6 +25,7 @@ Route::prefix('admin')->group(function () {
             'uses' => 'App\Http\Controllers\Dashboard@index',
         ]);
     });
+
     Route::prefix('categories')->group(function () {
         Route::get('/',[
             'as' =>'categories.index',
@@ -51,6 +52,7 @@ Route::prefix('admin')->group(function () {
             'uses' => 'App\Http\Controllers\CategoryController@delete',
         ]);
     });
+
     Route::prefix('menu')->group(function (){
         Route::get('/',[
            'as'=>'menu.index',
@@ -58,11 +60,11 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/create',[
            'as'=>'menu.create',
-           'uses'=>'App\Http\Controllers\MenuController@create'
+           'uses'=>'App\Http\Controllers\MenuController@create',
         ]);
         Route::post('/store',[
             'as'=>'menu.store',
-            'uses'=>'App\Http\Controllers\MenuController@store'
+            'uses'=>'App\Http\Controllers\MenuController@store',
         ]);
         Route::get('/edit/{id}',[
             'as'=>'menu.edit',
@@ -75,6 +77,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}',[
             'as'=>'menu.delete',
             'uses' => 'App\Http\Controllers\MenuController@delete',
+        ]);
+    });
+
+    Route::prefix('product')->group(function (){
+        Route::get('/',[
+           'as'=>'product.index',
+           'uses'=> 'App\Http\Controllers\AdminProductController@index',
         ]);
     });
 });

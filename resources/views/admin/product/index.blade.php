@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 @section('title')
-    <title>Danh mục</title>
+    <title>Sản phẩm</title>
 @endsection
 @section('link_css')
     <link href="{{asset('sbAdmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endsection
 @section('container-fluid')
     <div class="container-fluid">
-            <h1 class="h3 mb-4 font-weight-bold text-gray-800 text-primary">Danh mục</h1>
+        <h1 class="text-primary h3 mb-4 font-weight-bold text-gray-800 ">Sản phẩm</h1>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="{{route('categories.create')}}" class="btn btn-success btn-icon-split">
+                <a href="{{route('menu.create')}}" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
-                    <span class="text">Thêm danh mục</span>
+                    <span class="text">Thêm hãng phụ kiện</span>
                 </a>
             </div>
             <div class="card-body">
@@ -29,20 +29,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($danhmucs as $danhmuc)
+{{--                        @foreach($menus as $menu)--}}
                             <tr>
-                                <td>{{$danhmuc->id}}</td>
-                                <td>{{$danhmuc->name}}</td>
-                                <td>{{$danhmuc->description}}</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
                                 <td class="w-25 p-3">
                                     <div class="text-center">
-                                        <a href="{{route('categories.edit',['id'=>$danhmuc->id])}}" class="btn btn-warning btn-icon-split btn-sm">
+                                        <a href="" class="btn btn-warning btn-icon-split btn-sm">
                                             <span class="icon text-white-50">
                                                 <i class="far fa-edit"></i>
                                             </span>
                                             <span class="text">Sửa</span>
                                         </a>
-                                        <a href="#" data-url="{{route('categories.delete',['id'=>$danhmuc->id])}}" class="btn btn-danger btn-icon-split btn-sm action_delete">
+                                        <a href="#" data-url="" class="btn btn-danger btn-icon-split btn-sm action_delete">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>
@@ -51,7 +51,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+{{--                        @endforeach--}}
                         </tbody>
                     </table>
                 </div>
@@ -66,7 +66,7 @@
     <script>
         $(document).ready(
             function () {
-                const active = $('.category').addClass('active');
+                const active = $('.product').addClass('active');
                 active.find('.nav-link.collapsed').attr("aria-expanded","true");
                 active.find('.nav-link.collapsed').removeClass('collapsed');
                 active.find('.collapse').addClass('show');

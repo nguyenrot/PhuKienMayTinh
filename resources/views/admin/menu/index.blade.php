@@ -75,5 +75,5 @@
         );
     </script>
     <script src="{{asset('sbAdmin/vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
-    <script src="{{asset('admin/main.js')}}"></script>
+    <script src="{{asset('admin_resources/main.js')}}"></script>
 @endsection

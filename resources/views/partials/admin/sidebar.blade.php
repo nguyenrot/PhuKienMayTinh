@@ -43,6 +43,20 @@
             </div>
         </div>
     </li>
+    <li class="nav-item product" >
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-bars"></i>
+            <span>Sản phẩm</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Chức năng</h6>
+                <a class="collapse-item index" href="{{route('product.index')}}">Xem</a>
+                <a class="collapse-item create" href="">Thêm</a>
+            </div>
+        </div>
+    </li>
     <hr class="sidebar-divider">
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
