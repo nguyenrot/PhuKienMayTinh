@@ -22,13 +22,21 @@ Route::prefix('admin')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/',[
             'as' =>'dashboard.index',
-            'uses'=>'App\Http\Controllers\Dashboard@index',
+            'uses' => 'App\Http\Controllers\Dashboard@index',
         ]);
     });
     Route::prefix('categories')->group(function () {
         Route::get('/',[
             'as' =>'categories.index',
-            'uses'=>'App\Http\Controllers\CategoryController@index',
+            'uses' => 'App\Http\Controllers\CategoryController@index',
+        ]);
+        Route::get('/create',[
+           'as'=>'categories.create',
+           'uses' => 'App\Http\Controllers\CategoryController@create',
+        ]);
+        Route::post('/store',[
+           'as'=>'categories.store',
+            'uses' => 'App\Http\Controllers\CategoryController@store',
         ]);
     });
 });

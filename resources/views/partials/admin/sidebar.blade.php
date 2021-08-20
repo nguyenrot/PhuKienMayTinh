@@ -25,7 +25,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng</h6>
                 <a class="collapse-item index" href="{{route('categories.index')}}">Xem</a>
-                <a class="collapse-item create" href="cards.html">Thêm</a>
+                <a class="collapse-item create" href="{{route('categories.create')}}">Thêm</a>
             </div>
         </div>
     </li>
