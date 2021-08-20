@@ -63,10 +63,10 @@
                 <div class="collapse" id="sidebarEmail">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="apps-email-inbox.html">Xem</a>
+                            <a href="{{route('menu.index')}}">Xem</a>
                         </li>
                         <li>
-                            <a href="apps-email-read.html">Thêm</a>
+                            <a href="{{route('menu.create')}}">Thêm</a>
                         </li>
                     </ul>
                 </div>
@@ -81,10 +81,10 @@
                 <div class="collapse" id="sidebarProjects">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="apps-projects-list.html">Xem</a>
+                            <a href="{{route('product.index')}}">Xem</a>
                         </li>
                         <li>
-                            <a href="apps-projects-details.html">Thêm</a>
+                            <a href="{{route('product.create')}}">Thêm</a>
                         </li>
                     </ul>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\hangsanxuat;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class MenuController extends Controller
 {
@@ -16,7 +17,8 @@ class MenuController extends Controller
     }
 
     public function index(){
-        $menus = $this->hangsanxuat->all();
+        Paginator::useBootstrap();
+        $menus = $this->hangsanxuat->paginate(10);
         return view('admin.menu.index',compact('menus'));
     }
     public function create(){

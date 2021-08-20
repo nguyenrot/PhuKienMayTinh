@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\danhmuc;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class CategoryController extends Controller
 {
@@ -16,7 +17,8 @@ class CategoryController extends Controller
     }
 
     public function index(){
-        $danhmucs = $this->danhmuc->all();
+        Paginator::useBootstrap();
+        $danhmucs = $this->danhmuc->paginate(10);
         return view('admin.category.index',compact('danhmucs'));
     }
     public function create(){

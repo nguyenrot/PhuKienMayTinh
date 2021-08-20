@@ -57,6 +57,9 @@
 
                     </div>
 
+                    <div class="mt-3 text-center d-flex justify-content-center">
+                        {{$danhmucs->links()}}
+                    </div>
 
                 </div>
             </div>
