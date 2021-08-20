@@ -3,8 +3,8 @@ function myFunctionDelete (event){
     let urlRequest = $(this).data('url');
     let that = $(this);
     Swal.fire({
-        title: 'Bạn có muốn xóa?',
-        text: "Bạn sẽ không thể khôi phục lại nó!",
+        title: 'Bạn có muốn xóa ?',
+        text: "Bạn sẽ không thể khôi phục lại nó !",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

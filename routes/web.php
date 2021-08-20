@@ -51,4 +51,30 @@ Route::prefix('admin')->group(function () {
             'uses' => 'App\Http\Controllers\CategoryController@delete',
         ]);
     });
+    Route::prefix('menu')->group(function (){
+        Route::get('/',[
+           'as'=>'menu.index',
+           'uses' => 'App\Http\Controllers\MenuController@index',
+        ]);
+        Route::get('/create',[
+           'as'=>'menu.create',
+           'uses'=>'App\Http\Controllers\MenuController@create'
+        ]);
+        Route::post('/store',[
+            'as'=>'menu.store',
+            'uses'=>'App\Http\Controllers\MenuController@store'
+        ]);
+        Route::get('/edit/{id}',[
+            'as'=>'menu.edit',
+            'uses' => 'App\Http\Controllers\MenuController@edit',
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'menu.update',
+            'uses' => 'App\Http\Controllers\MenuController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'menu.delete',
+            'uses' => 'App\Http\Controllers\MenuController@delete',
+        ]);
+    });
 });

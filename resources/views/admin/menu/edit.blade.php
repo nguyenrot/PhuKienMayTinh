@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('title')
-    <title>Cập nhập danh mục</title>
+    <title>Cập nhập hãng phụ kiện</title>
 @endsection
 @section('link_css')
 
 @endsection
 @section('container-fluid')
     <div class="container-fluid">
-        <h1 class="h3 mb-4 font-weight-bold text-gray-800 text-primary">Cập nhập danh mục</h1>
+        <h1 class="h3 mb-4 font-weight-bold text-gray-800 text-primary">Cập nhập hãng phụ kiện</h1>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <a href="{{route('categories.index')}}" class="btn btn-success btn-icon-split">
@@ -18,15 +18,15 @@
                 </a>
             </div>
             <div class="card-body">
-                <form action="{{route('categories.update',['id'=>$danhmucs->id])}}" method="post">
+                <form action="{{route('menu.update',['id'=>$menu->id])}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tên danh mục</label>
-                        <input name="name" type="text" class="form-control" placeholder="Nhập tên danh mục" value="{{$danhmucs->name}}">
+                        <label for="exampleInputEmail1">Tên hãng phụ kiện</label>
+                        <input name="name" type="text" class="form-control" placeholder="Nhập tên hãng phụ kiện" value="{{$menu->name}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mô tả</label>
-                        <textarea name="description" id="" rows="5" class="form-control" placeholder="Mô tả ">{{$danhmucs->description}}</textarea>
+                        <textarea name="description" id="" rows="5" class="form-control" placeholder="Mô tả ">{{$menu->description}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -38,7 +38,7 @@
     <script>
         $(document).ready(
             function () {
-                const active = $('.category').addClass('active');
+                const active = $('.menu').addClass('active');
                 active.find('.nav-link.collapsed').attr("aria-expanded","true");
                 active.find('.nav-link.collapsed').removeClass('collapsed');
                 active.find('.collapse').addClass('show');

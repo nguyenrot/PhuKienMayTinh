@@ -18,7 +18,7 @@
     <li class="nav-item category" >
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-bars"></i>
             <span>Danh mục</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -26,6 +26,20 @@
                 <h6 class="collapse-header">Chức năng</h6>
                 <a class="collapse-item index" href="{{route('categories.index')}}">Xem</a>
                 <a class="collapse-item create" href="{{route('categories.create')}}">Thêm</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item menu" >
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-tv"></i>
+            <span>Hãng phụ kiện</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Chức năng</h6>
+                <a class="collapse-item index" href="{{route('menu.index')}}">Xem</a>
+                <a class="collapse-item create" href="{{route('menu.create')}}">Thêm</a>
             </div>
         </div>
     </li>
