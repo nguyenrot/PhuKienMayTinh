@@ -30,8 +30,8 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
     public function edit($id){
-        $danhmucs = $this->danhmuc->find($id);
-        return view('admin.category.edit',compact('danhmucs'));
+        $danhmuc = $this->danhmuc->find($id);
+        return view('admin.category.edit',compact('danhmuc'));
     }
     public function update($id,Request $request){
         $this->danhmuc->find($id)->update([

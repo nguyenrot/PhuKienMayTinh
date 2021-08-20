@@ -1,65 +1,95 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Phụ Kiện Máy Tính Admin<sup></sup></div>
-    </a>
-    <hr class="sidebar-divider my-0">
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('dashboard.index')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-        Thao tác trang web
-    </div>
-    <li class="nav-item category" >
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-bars"></i>
-            <span>Danh mục</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Chức năng</h6>
-                <a class="collapse-item index" href="{{route('categories.index')}}">Xem</a>
-                <a class="collapse-item create" href="{{route('categories.create')}}">Thêm</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item menu" >
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-tv"></i>
-            <span>Hãng phụ kiện</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Chức năng</h6>
-                <a class="collapse-item index" href="{{route('menu.index')}}">Xem</a>
-                <a class="collapse-item create" href="{{route('menu.create')}}">Thêm</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item product" >
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-bars"></i>
-            <span>Sản phẩm</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Chức năng</h6>
-                <a class="collapse-item index" href="{{route('product.index')}}">Xem</a>
-                <a class="collapse-item create" href="">Thêm</a>
-            </div>
-        </div>
-    </li>
-    <hr class="sidebar-divider">
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-</ul>
+<div class="leftside-menu">
 
+    <!-- LOGO -->
+    <a href="index.html" class="logo text-center logo-light">
+                    <span class="logo-lg">
+                        <img src="{{asset('adminv18/assets/images/logo.png')}}" alt="" height="16">
+                    </span>
+        <span class="logo-sm">
+                        <img src="{{asset('adminv18/assets/images/logo_sm.png')}}" alt="" height="16">
+                    </span>
+    </a>
+
+    <!-- LOGO -->
+    <a href="index.html" class="logo text-center logo-dark">
+                    <span class="logo-lg">
+                        <img src="{{asset('adminv18/assets/images/logo-dark.png')}}" alt="" height="16">
+                    </span>
+        <span class="logo-sm">
+                        <img src="{{asset('adminv18/assets/images/logo_sm_dark.png')}}" alt="" height="16">
+                    </span>
+    </a>
+
+    <div class="h-100" id="leftside-menu-container" data-simplebar="">
+
+        <!--- Sidemenu -->
+        <ul class="side-nav">
+
+            <li class="side-nav-title side-nav-item">Thanh công cụ</li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span> Dashboards </span>
+                </a>
+            </li>
+
+            <li class="side-nav-title side-nav-item">Chức năng</li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span> Danh mục </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarEcommerce">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('categories.index')}}">Xem</a>
+                        </li>
+                        <li>
+                            <a href="{{route('categories.create')}}">Thêm</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
+                    <i class="uil-envelope"></i>
+                    <span> Hãng phụ kiện </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarEmail">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="apps-email-inbox.html">Xem</a>
+                        </li>
+                        <li>
+                            <a href="apps-email-read.html">Thêm</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarProjects" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
+                    <i class="uil-briefcase"></i>
+                    <span> Sản phẩm </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarProjects">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="apps-projects-list.html">Xem</a>
+                        </li>
+                        <li>
+                            <a href="apps-projects-details.html">Thêm</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+</div>

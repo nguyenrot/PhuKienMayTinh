@@ -19,12 +19,11 @@ function myFunctionDelete (event){
                     console.log(data);
                     console.log('123');
                     if (data.code==200){
-                        that.parent().parent().parent().remove();
+                        that.parent().parent().remove();
                     }
                     Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                        'Đã xóa!',
+                        'Thành công'
                     )
                 },
                 error : function (){
@@ -33,7 +32,22 @@ function myFunctionDelete (event){
             })
         }
     })
-    $(".swal2-cancel.swal2-styled.swal2-default-outline").text('Hủy');
+    const btn_cancel = $(".swal2-cancel.swal2-styled.swal2-default-outline").text('Hủy');
+    btn_cancel.removeAttr('style')
+    btn_cancel.removeClass('swal2-styled');
+    btn_cancel.removeClass('swal2-default-outline');
+    btn_cancel.addClass('btn');
+    btn_cancel.addClass('btn-danger')
+    btn_cancel.addClass('btn-lg')
+    btn_cancel.addClass('m-2')
+    const btn_success = $(".swal2-confirm.swal2-styled.swal2-default-outline").text('Xác nhận xóa');
+    btn_success.removeAttr('style')
+    btn_success.removeClass('swal2-styled');
+    btn_success.removeClass('swal2-default-outline');
+    btn_success.addClass('btn');
+    btn_success.addClass('btn-success')
+    btn_success.addClass('btn-lg')
+    btn_success.addClass('m-2')
 }
 
 

@@ -1,89 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Login</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('sbAdmin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{asset('sbAdmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <meta charset="utf-8" />
+    <title>Đăng nhập | Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <link rel="shortcut icon" href="{{asset('adminv18/assets/images/favicon.ico')}}">
+    <link href="{{asset('adminv18/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('adminv18/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="{{asset('adminv18/assets/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style" />
 
 </head>
 
-<body class="bg-gradient-primary">
-
-<div class="container">
-
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-        <div class="col-xl-10 col-lg-12 col-md-9">
-
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Đăng nhập Admin</h1>
-                                </div>
-                                <form class="user">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Nhập email ...">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Mật khẩu">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            <label class="custom-control-label" for="customCheck">Remember
-                                                Me</label>
-                                        </div>
-                                    </div>
-                                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                        Login
-                                    </a>
-                                    <hr>
-                                </form>
-                            </div>
+<body class="loading authentication-bg" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+<div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xxl-4 col-lg-5">
+                <div class="card">
+                    <div class="card-header pt-4 pb-4 text-center bg-primary">
+                        <a href="index.html">
+                            <span><img src="{{asset('adminv18/assets/images/logo.png')}}" alt="" height="18"></span>
+                        </a>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="text-center w-75 m-auto">
+                            <h4 class="text-dark-50 text-center pb-0 fw-bold">Đăng Nhập</h4>
+                            <p class="text-muted mb-4">Nhập Email và mật khẩu để truy cập quản trị hệ thống.</p>
                         </div>
+                        <form action="#">
+                            <div class="mb-3">
+                                <label for="emailaddress" class="form-label">Email</label>
+                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Nhập email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" placeholder="Nhập password">
+                                    <div class="input-group-text" data-password="false">
+                                        <span class="password-eye"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="checkbox-signin" checked>
+                                    <label class="form-check-label" for="checkbox-signin">Remember me</label>
+                                </div>
+                            </div>
+                            <div class="mb-3 mb-0 text-center">
+                                <button class="btn btn-primary" type="submit"> Đăng nhập </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="{{asset('sbAdmin/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('sbAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<footer class="footer footer-alt">
+    2021 - Phụ kiện máy tính ROT
+</footer>
 
-<!-- Core plugin JavaScript-->
-<script src="{{asset('sbAdmin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{asset('sbAdmin/js/sb-admin-2.min.js')}}"></script>
+<script src="{{asset('adminv18/assets/js/vendor.min.js')}}"></script>
+<script src="{{asset('adminv18/assets/js/app.min.js')}}"></script>
 
 </body>
-
 </html>
