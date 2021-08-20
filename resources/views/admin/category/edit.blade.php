@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    <title>Thêm danh mục</title>
+    <title>Sửa danh mục</title>
 @endsection
 @section('link_css')
 
@@ -18,15 +18,15 @@
                 </a>
             </div>
             <div class="card-body">
-                <form action="{{route('categories.store')}}" method="post">
+                <form action="{{route('categories.update',['id'=>$danhmucs->id])}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên danh mục</label>
-                        <input name="name" type="text" class="form-control" placeholder="Nhập tên danh mục">
+                        <input name="name" type="text" class="form-control" placeholder="Nhập tên danh mục" value="{{$danhmucs->name}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mô tả</label>
-                        <textarea name="description" id="" rows="5" class="form-control" placeholder="Mô tả "></textarea>
+                        <textarea name="description" id="" rows="5" class="form-control" placeholder="Mô tả ">{{$danhmucs->description}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -42,7 +42,6 @@
                 active.find('.nav-link.collapsed').attr("aria-expanded","true");
                 active.find('.nav-link.collapsed').removeClass('collapsed');
                 active.find('.collapse').addClass('show');
-                active.find('.create').addClass('active');
             }
         );
     </script>

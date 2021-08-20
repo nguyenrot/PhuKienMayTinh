@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    <title>Trang chủ Admin</title>
+    <title>Danh mục</title>
 @endsection
 @section('link_css')
     <link href="{{asset('sbAdmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
@@ -22,6 +22,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
+                            <th>#</th>
                             <th>Tên danh mục</th>
                             <th>Mô tả</th>
                             <th>Hành động</th>
@@ -30,17 +31,18 @@
                         <tbody>
                         @foreach($danhmucs as $danhmuc)
                             <tr>
+                                <td>{{$danhmuc->id}}</td>
                                 <td>{{$danhmuc->name}}</td>
                                 <td>{{$danhmuc->description}}</td>
                                 <td class="w-25 p-3">
                                     <div class="text-center">
-                                        <a href="#" class="btn btn-warning btn-icon-split btn-sm">
+                                        <a href="{{route('categories.edit',['id'=>$danhmuc->id])}}" class="btn btn-warning btn-icon-split btn-sm">
                                             <span class="icon text-white-50">
                                                 <i class="far fa-edit"></i>
                                             </span>
                                             <span class="text">Sửa</span>
                                         </a>
-                                        <a href="#" class="btn btn-danger btn-icon-split btn-sm">
+                                        <a href="#" data-url="{{route('categories.delete',['id'=>$danhmuc->id])}}" class="btn btn-danger btn-icon-split btn-sm action_delete">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>
@@ -72,4 +74,6 @@
             }
         );
     </script>
+    <script src="{{asset('sbAdmin/vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
+    <script src="{{asset('admin/main.js')}}"></script>
 @endsection
