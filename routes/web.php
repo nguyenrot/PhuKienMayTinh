@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/admin', 'App\Http\Controllers\AdminLoginController@login');
 
 Route::prefix('admin')->group(function () {
+
     Route::prefix('dashboard')->group(function () {
         Route::get('/',[
             'as' =>'dashboard.index',
@@ -93,5 +94,22 @@ Route::prefix('admin')->group(function () {
             'as'=>'product.store',
             'uses'=>'App\Http\Controllers\AdminProductController@store',
         ]);
+        Route::get('/edit/{id}',[
+            'as'=>'product.edit',
+            'uses' => 'App\Http\Controllers\AdminProductController@edit',
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'product.update',
+            'uses' => 'App\Http\Controllers\AdminProductController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'product.delete',
+            'uses' => 'App\Http\Controllers\AdminProductController@delete',
+        ]);
+        Route::get('/active/{id}',[
+            'as'=>'product.active',
+            'uses' => 'App\Http\Controllers\AdminProductController@active',
+        ]);
     });
+
 });

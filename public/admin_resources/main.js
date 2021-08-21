@@ -16,8 +16,6 @@ function myFunctionDelete (event){
                 type:'GET',
                 url: urlRequest,
                 success : function (data){
-                    console.log(data);
-                    console.log('123');
                     if (data.code==200){
                         that.parent().parent().remove();
                     }
