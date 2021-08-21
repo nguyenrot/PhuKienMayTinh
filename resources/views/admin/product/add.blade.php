@@ -5,6 +5,7 @@
 @section('link_css')
     <link href="{{asset('adminv18/assets/css/vendor/simplemde.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('adminv18/assets/css/vendor/quill.bubble.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('vendor/FroalaEditer/froala_editor.pkgd.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('container-fluid')
     <div class="row">
@@ -35,52 +36,55 @@
                                 <div class="row g-2">
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Danh mục</label>
-                                        <select id="inputState" class="form-select">
-                                            <option>Choose</option>
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
+                                        <select id="inputState" class="form-select" name="category_id">
+                                            <option>Chọn danh mục</option>
+                                            @foreach($danhmucs as $danhmuc)
+                                                <option value="{{$danhmuc->id}}">{{$danhmuc->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Hãng phụ kiện</label>
-                                        <select id="inputState" class="form-select">
-                                            <option>Choose</option>
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
+                                        <select id="inputState" class="form-select" name="menu_id">
+                                            <option>Chọn hãng</option>
+                                            @foreach($menus as $menu)
+                                                <option value="{{$menu->id}}">{{$menu->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row g-2">
                                     <div class="mb-3 col-md-6">
-                                        <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
-                                        <input type="text" class="form-control" id="inputEmail4" placeholder="Tên sản phẩm">
+                                        <label class="form-label">Tên sản phẩm</label>
+                                        <input name="tensp" type="text" class="form-control" id="inputEmail4" placeholder="Tên sản phẩm">
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label for="inputEmail4" class="form-label">Giá sản phẩm</label>
-                                        <input type="text" class="form-control" id="inputEmail4" placeholder="Giá sản phẩm">
+                                        <label class="form-label">Giá sản phẩm</label>
+                                        <input name="dongia" type="text" class="form-control" id="inputEmail4" placeholder="Giá sản phẩm">
                                     </div>
                                 </div>
 
                                 <div class="row g-2">
                                     <div class="mb-3 col-md-6">
                                         <label for="inputEmail4" class="form-label">Số lượng</label>
-                                        <input type="text" class="form-control" id="inputEmail4" placeholder="Số lượng">
+                                        <input name="soluong" type="text" class="form-control" id="inputEmail4" placeholder="Số lượng">
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label for="inputEmail4" class="form-label">Ảnh đại diện</label>
-                                        <input type="file" class="form-control" id="inputEmail4">
+                                        <label class="form-label">Ảnh đại diện</label>
+                                        <input name="hinhanh" type="file" class="form-control" id="inputEmail4">
                                     </div>
                                 </div>
-
                                 <div class="mb-3">
-                                    <label for="inputEmail4" class="form-label">Cấu hình</label>
-                                    <textarea id="simplemde1" placeholder="Nhập cấu hình"></textarea>
+                                    <label class="form-label">Ảnh chi tiết</label>
+                                    <input name="hinhanhchitiet[]" type="file" class="form-control" id="inputEmail4" multiple>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputEmail4" class="form-label">Mô tả</label>
-                                    <textarea name="content" id="editor" placeholder="Nhập mô tả"></textarea>
+                                    <label class="form-label">Cấu hình</label>
+                                    <textarea name="cauhinh" class="form-control my-editor-cauhinh"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mô tả</label>
+                                    <textarea name="mota" class="form-control my-editor-mota"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
@@ -94,4 +98,9 @@
 @section('link_js')
     <script src="{{asset('adminv18/assets/js/vendor/simplemde.min.js')}}"></script>
     <script src="{{asset('adminv18/assets/js/pages/demo.simplemde.js')}}"></script>
+    <script src="{{asset('vendor/FroalaEditer/froala_editor.pkgd.min.js')}}"></script>
+    <script>
+        new FroalaEditor('.my-editor-cauhinh');
+        new FroalaEditor('.my-editor-mota');
+    </script>
 @endsection
