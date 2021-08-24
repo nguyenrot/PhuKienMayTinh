@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/admin', 'App\Http\Controllers\AdminLoginController@login');
+Route::post('/admin', 'App\Http\Controllers\AdminLoginController@postLoginAdmin');
+
+
+Route::middleware(['admin'])->group(function (){
+
+});
 
 Route::prefix('admin')->group(function () {
 
@@ -33,11 +37,11 @@ Route::prefix('admin')->group(function () {
             'uses' => 'App\Http\Controllers\CategoryController@index',
         ]);
         Route::get('/create',[
-           'as'=>'categories.create',
-           'uses' => 'App\Http\Controllers\CategoryController@create',
+            'as'=>'categories.create',
+            'uses' => 'App\Http\Controllers\CategoryController@create',
         ]);
         Route::post('/store',[
-           'as'=>'categories.store',
+            'as'=>'categories.store',
             'uses' => 'App\Http\Controllers\CategoryController@store',
         ]);
         Route::get('/edit/{id}',[
@@ -56,12 +60,12 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('menu')->group(function (){
         Route::get('/',[
-           'as'=>'menu.index',
-           'uses' => 'App\Http\Controllers\MenuController@index',
+            'as'=>'menu.index',
+            'uses' => 'App\Http\Controllers\MenuController@index',
         ]);
         Route::get('/create',[
-           'as'=>'menu.create',
-           'uses'=>'App\Http\Controllers\MenuController@create',
+            'as'=>'menu.create',
+            'uses'=>'App\Http\Controllers\MenuController@create',
         ]);
         Route::post('/store',[
             'as'=>'menu.store',
@@ -83,8 +87,8 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('product')->group(function (){
         Route::get('/',[
-           'as'=>'product.index',
-           'uses'=> 'App\Http\Controllers\AdminProductController@index',
+            'as'=>'product.index',
+            'uses'=> 'App\Http\Controllers\AdminProductController@index',
         ]);
         Route::get('/create',[
             'as'=>'product.create',

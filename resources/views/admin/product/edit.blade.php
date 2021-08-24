@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Mô tả</label>
-                                    <textarea name="mota" class="form-control my-editor-mota">{{$sanpham->mota}}</textarea>
+                                    <textarea name="mota" class="form-control my-editor" rows="40">{{$sanpham->mota}}</textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
@@ -99,8 +99,6 @@
     <script src="{{asset('adminv18/assets/js/vendor/simplemde.min.js')}}"></script>
     <script src="{{asset('adminv18/assets/js/pages/demo.simplemde.js')}}"></script>
     <script src="{{asset('vendor/FroalaEditer/froala_editor.pkgd.min.js')}}"></script>
-    <script>
-        new FroalaEditor('.my-editor-cauhinh');
-        new FroalaEditor('.my-editor-mota');
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.8.2/tinymce.min.js" integrity="sha512-laacsEF5jvAJew9boBITeLkwD47dpMnERAtn4WCzWu/Pur9IkF0ZpVTcWRT/FUCaaf7ZwyzMY5c9vCcbAAuAbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{asset('admin_resources/sanpham/add.js')}}"></script>
 @endsection

@@ -14,13 +14,6 @@ function myFunctionActive (event){
     $.ajax({
         type:'GET',
         url: urlRequest,
-        success : function (data){
-            if (data.code==200){
-
-            }
-        },
-        error : function (){
-        }
     })
 }
 $(function (){

@@ -3,20 +3,18 @@
     <!-- LOGO -->
     <a href="index.html" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <img src="{{asset('adminv18/assets/images/logo.png')}}" alt="" height="16">
+                        <img src="{{asset('adminv18/assets/images/logo.png')}}" alt="">
                     </span>
         <span class="logo-sm">
-                        <img src="{{asset('adminv18/assets/images/logo_sm.png')}}" alt="" height="16">
+                        <img src="{{asset('adminv18/assets/images/logo_sm.png')}}" alt="">
                     </span>
     </a>
-
-    <!-- LOGO -->
     <a href="index.html" class="logo text-center logo-dark">
                     <span class="logo-lg">
-                        <img src="{{asset('adminv18/assets/images/logo-dark.png')}}" alt="" height="16">
+                        <img src="{{asset('adminv18/assets/images/logo-dark.png')}}" alt="">
                     </span>
         <span class="logo-sm">
-                        <img src="{{asset('adminv18/assets/images/logo_sm_dark.png')}}" alt="" height="16">
+                        <img src="{{asset('adminv18/assets/images/logo_sm_dark.png')}}" alt="">
                     </span>
     </a>
 
