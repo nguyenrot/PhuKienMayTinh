@@ -116,4 +116,18 @@ Route::prefix('admin')->group(function () {
         ]);
     });
 
+    Route::prefix('khuyenmai')->group(function (){
+        Route::get('/',[
+            'as'=>'khuyenmai.index',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@index',
+        ]);
+        Route::get('/create',[
+            'as'=>'khuyenmai.create',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@create',
+        ]);
+        Route::post('/store',[
+            'as'=>'khuyenmai.store',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@store',
+        ]);
+    });
 });

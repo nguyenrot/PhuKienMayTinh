@@ -97,10 +97,10 @@
                 <div class="collapse" id="sidebarTasks">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="apps-tasks.html">Xem</a>
+                            <a href="{{route('khuyenmai.index')}}">Xem</a>
                         </li>
                         <li>
-                            <a href="apps-tasks-details.html">Thêm</a>
+                            <a href="{{route('khuyenmai.create')}}">Thêm</a>
                         </li>
                     </ul>
                 </div>
