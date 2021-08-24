@@ -62,8 +62,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="mt-5">
-                    <p class="text-muted mt-4 text-center mb-0">© 2018 - 2021 Hyper. Design and coded by
-                        Coderthemes</p>
+                    <p class="text-muted mt-4 text-center mb-0">© 2021 New Shop. Design and coded by
+                        Phạm Kỷ Nguyên</p>
                 </div>
             </div>
         </div>

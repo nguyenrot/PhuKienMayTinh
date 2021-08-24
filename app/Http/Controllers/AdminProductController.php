@@ -47,7 +47,8 @@ class AdminProductController extends Controller
                 'mota'=>$request->mota,
                 'category_id'=>$request->category_id,
                 'menu_id'=>$request->menu_id,
-                'active'=> 1
+                'active'=> 1,
+                'view' => 0
             ];
             if ($request->hasFile('hinhanh')){
                 $path = $request->hinhanh->storeAS('public/sanpham',$request->hinhanh->getClientOriginalName());
