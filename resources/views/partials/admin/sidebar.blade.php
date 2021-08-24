@@ -87,6 +87,58 @@
                     </ul>
                 </div>
             </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
+                    <i class="uil-clipboard-alt"></i>
+                    <span> Khuyến mãi </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarTasks">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="apps-tasks.html">Xem</a>
+                        </li>
+                        <li>
+                            <a href="apps-tasks-details.html">Thêm</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
+                    <i class="uil-window"></i>
+                    <span> Đơn hàng </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarLayouts">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="layouts-horizontal.html">Xem tất cả</a>
+                        </li>
+                        <li>
+                            <a href="layouts-detached.html">Đơn chờ xác nhận</a>
+                        </li>
+                        <li>
+                            <a href="layouts-detached.html">Đơn đang giao</a>
+                        </li>
+                        <li>
+                            <a href="layouts-detached.html">Đơn đã giao</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="apps-file-manager.html" class="side-nav-link">
+                    <i class="uil-folder-plus"></i>
+                    <span> Báo cáo thống kê </span>
+                </a>
+            </li>
+
+            <li class="side-nav-title side-nav-item mt-1">Tài khoản</li>
+
         </ul>
         <div class="clearfix"></div>
     </div>

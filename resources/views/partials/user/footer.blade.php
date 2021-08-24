@@ -3,9 +3,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <img src="{{asset('adminv18/assets/images/logo.png')}}" alt="" class="logo-dark" height="18">
-                <p class="text-muted mt-4">Hyper makes it easier to build better websites with
-                    <br> great speed. Save hundreds of hours of design
-                    <br> and development by using it.</p>
+                <p class="text-muted mt-4">Phụ kiện may tính
+                    <br>An toàn - Uy Tín - Chất lượng</p>
 
                 <ul class="social-list list-inline mt-3">
                     <li class="list-inline-item text-center">

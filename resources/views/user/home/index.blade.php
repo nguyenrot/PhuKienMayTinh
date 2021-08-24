@@ -9,5 +9,23 @@
 
 @endsection()
 @section('content')
+    <!-- SLIDER-->
+    @include('user.home.partials.slider')
+    <!-- SLIDER-->
 
+    <!-- DANHMUC -->
+    @include('user.home.partials.danhmuc')
+    <!-- DANHMUC END -->
+
+    <!-- SẢN PHẨM MỚI-->
+    @include('user.home.partials.sanpham_new')
+    <!-- SẢN PHẨM MỚI END -->
+
+    <!-- SẢN PHẨM YÊU THÍCH -->
+    @include('user.home.partials.sanpham_like')
+    <!-- SẢN PHẨM YÊU THÍCH END -->
+
+    <!-- SẢN PHẨM KHUYẾN MÃI -->
+    @include('user.home.partials.sanpham_discount')
+    <!-- SẢN PHẨM KHUYẾN MÃI END -->
 @endsection()

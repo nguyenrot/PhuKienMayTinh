@@ -18,38 +18,20 @@
 </head>
 <body class="loading" data-layout-config='{"darkMode":false}'>
 
-<!-- NAVBAR -->
-@include('partials.user.navbar')
-<!-- NAVBAR END -->
+    <!-- NAVBAR -->
+    @include('partials.user.navbar')
+    <!-- NAVBAR END -->
 
-<!-- SLIDER-->
-@include('partials.user.home.slider')
-<!-- SLIDER-->
+    @yield('content')
 
-<!-- DANHMUC -->
-@include('partials.user.home.danhmuc')
-<!-- DANHMUC END -->
+    <!-- START FOOTER -->
+    @include('partials.user.footer')
+    <!-- END FOOTER -->
 
-<!-- SẢN PHẨM MỚI-->
-@include('partials.user.home.sanpham_new')
-<!-- SẢN PHẨM MỚI END -->
-
-<!-- SẢN PHẨM YÊU THÍCH -->
-@include('partials.user.home.sanpham_like')
-<!-- SẢN PHẨM YÊU THÍCH END -->
-
-<!-- SẢN PHẨM KHUYẾN MÃI -->
-@include('partials.user.home.sanpham_discount')
-<!-- SẢN PHẨM KHUYẾN MÃI END -->
-
-<!-- START FOOTER -->
-@include('partials.user.footer')
-<!-- END FOOTER -->
-
-<!-- bundle -->
-<script src="{{asset('adminv18/assets/js/vendor.min.js')}}"></script>
-<script src="{{asset('adminv18/assets/js/app.min.js')}}"></script>
-<script src="{{asset('admin_resources/home/home.js')}}"></script>
+    <!-- bundle -->
+    <script src="{{asset('adminv18/assets/js/vendor.min.js')}}"></script>
+    <script src="{{asset('adminv18/assets/js/app.min.js')}}"></script>
+    <script src="{{asset('admin_resources/home/home.js')}}"></script>
 
 </body>
 

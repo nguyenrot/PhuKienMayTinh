@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="row pb-3 pt-5 align-items-center">
+        <div class="row pb-3 pt-1 align-items-center">
             <div class="col-lg-6">
                 <h2 class="text-primary">{{$sanphamlike[1]->tensp}}</h2>
 
