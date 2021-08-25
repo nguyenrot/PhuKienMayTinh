@@ -35,8 +35,8 @@
                                         <th>Ngày bắt đầu</th>
                                         <th>Ngày kết thúc</th>
                                         <th>Trạng thái</th>
-                                        <th>Thêm sản phẩm</th>
-                                        <th>Hành động</th>
+                                        <th class="text-center">Thêm sản phẩm</th>
+                                        <th class="text-center">Hành động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -60,12 +60,25 @@
                                                         @break
                                                 @endswitch
                                             </td>
-                                            <td>
-                                                <a href="" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil-box-multiple"></i> Thêm sản phẩm</a>
+                                            <td class="text-center">
+                                                @switch($khuyenmai->active)
+                                                    @case(2)
+                                                        <a href="{{route('khuyenmai.add_product',['id'=>$khuyenmai->id])}}" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil-box-multiple"></i> Xem</a>
+                                                    @break
+                                                    @default
+                                                        <a href="{{route('khuyenmai.add_product',['id'=>$khuyenmai->id])}}" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil-box-multiple"></i> Thêm / Xóa sản phẩm</a>
+                                                @endswitch
+
                                             </td>
-                                            <td>
-                                                <a href="" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil"></i> Sửa</a>
-                                                <a href="javascript: void(0);" data-url="" class="btn btn-outline-dark btn-rounded action_delete"> <i class="mdi mdi-delete"></i> Xóa</a>
+                                            <td class="text-center">
+                                                @switch($khuyenmai->active)
+                                                    @case(2)
+                                                        <a href="javascript: void(0);" class="btn btn-secondary btn-rounded"> <i class="mdi mdi-cancel"></i></a>
+                                                    @break
+                                                    @default
+                                                    <a href="{{route('khuyenmai.edit',['id'=>$khuyenmai->id])}}" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil"></i> Sửa</a>
+                                                @endswitch
+                                                <a href="javascript: void(0);" data-url="{{route('khuyenmai.delete',['id'=>$khuyenmai->id])}}" class="btn btn-outline-dark btn-rounded action_delete"> <i class="mdi mdi-delete"></i> Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -83,7 +96,6 @@
     </div>
 @endsection
 @section('link_js')
-{{--    <script src="{{asset('admin_resources/sanpham/index.js')}}"></script>--}}
     <script src="{{asset('vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
     <script src="{{asset('admin_resources/main.js')}}"></script>
 @endsection

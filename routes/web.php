@@ -129,5 +129,25 @@ Route::prefix('admin')->group(function () {
             'as'=>'khuyenmai.store',
             'uses'=> 'App\Http\Controllers\KhuyenMaiController@store',
         ]);
+        Route::get('/edit/{id}',[
+            'as'=>'khuyenmai.edit',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@edit',
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'khuyenmai.update',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'khuyenmai.delete',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@delete',
+        ]);
+        Route::get('/add_product/{id}',[
+            'as'=>'khuyenmai.add_product',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@add_product',
+        ]);
+        Route::post('/post_add_product/{id}',[
+            'as'=>'khuyenmai.post_add_product',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@post_add_product',
+        ]);
     });
 });

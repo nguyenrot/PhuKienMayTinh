@@ -1,0 +1,127 @@
+@extends('layouts.admin')
+@section('title')
+    <title>Thêm sản phẩm khuyến mãi</title>
+@endsection
+@section('link_css')
+    <link href="{{asset('adminv18/assets/css/vendor/simplemde.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('adminv18/assets/css/vendor/quill.bubble.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('vendor/FroalaEditer/froala_editor.pkgd.min.css')}}" rel="stylesheet" type="text/css" />
+@endsection
+@section('container-fluid')
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Khuyến mãi</a></li>
+                        <li class="breadcrumb-item active">Thêm sản phẩm</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Thêm sản phẩm khuyến mãi</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{route('khuyenmai.index')}}" class="btn btn-secondary btn-rounded mb-3">Quay về</a>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="form-row-preview">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="mb-1">Tên khuyến mãi</h5>
+                                    <div class="tab-pane show active" id="striped-rows-preview">
+                                        <div class="form-floating mb-3">
+                                            <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Tên danh mục" value="{{$khuyenmai->name}}" readonly />
+                                            <label for="floatingInput">Tên danh mục</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="mb-1">Ngày bắt đầu</h5>
+                                    <div class="tab-pane show active" id="striped-rows-preview">
+                                        <div class="form-floating mb-3">
+                                            <input value="{{$ngaybd}}" name="ngaybd" type="datetime-local" class="form-control" id="floatingInput" placeholder="Ngày bắt đầu" readonly />
+                                            <label for="floatingInput">Ngày bắt đầu</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="mb-1">Ngày kết thúc</h5>
+                                    <div class="tab-pane show active" id="striped-rows-preview">
+                                        <div class="form-floating mb-3">
+                                            <input value="{{$ngaykt}}" name="ngaykt" type="datetime-local" class="form-control" id="floatingInput" placeholder="Ngày kết thúc" readonly />
+                                            <label for="floatingInput">Ngày kết thúc</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="form-row-preview">
+                            <form action="{{route('khuyenmai.post_add_product',['id'=>$khuyenmai->id])}}" method="post">
+                            @csrf
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="mb-1">Thêm sản phẩm khuyến mãi</h5>
+                                        <table class="table tblChiTietKhuyenMai table-hover table-centered mb-0">
+                                            <tr class="trAppend" style="display: none">
+                                                <td>
+                                                    <select class="ddlSanPham form-select" name="sanpham" id="example-select">
+                                                        @foreach($sanphams as $sanpham)
+                                                            <option value="{{$sanpham->id}}">{{$sanpham->tensp}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input name="tyle" type="text" id="simpleinput" class="form-control txtTyLeKhuyenMai" value="0">
+                                                </td>
+                                                <td>
+                                                    <input name="soluong" type="text" id="simpleinput" class="form-control txtSoLuong" value="0">
+                                                </td>
+                                                <td>
+                                                    <button name="tyle" type="button" class="btn btn-outline-dark btn-rounded btnDelete"><i class="fa fa-times"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr class="trFirstChild" data-id="-1">
+                                                <th>Sản phẩm</th>
+                                                <th>Số lượng</th>
+                                                <th>Tỷ lệ khuyễn mãi</th>
+                                                <th>Xóa</th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <input type="button" value="Thêm sản phẩm" class="btn btn-outline-dark btn-rounded" id="btnAdd" />
+                                    <button type="submit" class="btn btn-primary btn-rounded" >Lưu sản phẩm khuyến mãi</button>
+{{--                                    id="btnNhapKhuyenMai"--}}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('link_js')
+    <script src="{{asset('adminv18/assets/js/vendor/simplemde.min.js')}}"></script>
+    <script src="{{asset('adminv18/assets/js/pages/demo.simplemde.js')}}"></script>
+    <script src="{{asset('admin_resources/khuyenmai/add_product.js')}}"></script>
+@endsection

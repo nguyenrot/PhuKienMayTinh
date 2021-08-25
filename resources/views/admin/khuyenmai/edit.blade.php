@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    <title>Thêm khuyến mãi</title>
+    <title>Sửa khuyến mãi</title>
 @endsection
 @section('link_css')
     <link href="{{asset('adminv18/assets/css/vendor/simplemde.min.css')}}" rel="stylesheet" type="text/css" />
@@ -15,10 +15,10 @@
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Khuyến mãi</a></li>
-                        <li class="breadcrumb-item active">Thêm khuyến mãi</li>
+                        <li class="breadcrumb-item active">Sửa khuyến mãi</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Thêm khuyễn mãi</h4>
+                <h4 class="page-title">Sửa khuyễn mãi</h4>
             </div>
         </div>
     </div>
@@ -31,14 +31,14 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="form-row-preview">
-                            <form action="{{route('khuyenmai.store')}}" method="post">
+                            <form action="{{route('khuyenmai.update',['id'=>$khuyenmai->id])}}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
                                         <h5 class="mb-1">Tên khuyến mãi</h5>
                                         <div class="tab-pane show active" id="striped-rows-preview">
                                             <div class="form-floating mb-3">
-                                                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Tên danh mục" />
+                                                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Tên danh mục" value="{{$khuyenmai->name}}" />
                                                 <label for="floatingInput">Tên danh mục</label>
                                             </div>
                                         </div>
@@ -49,7 +49,7 @@
                                         <h5 class="mb-1">Ngày bắt đầu</h5>
                                         <div class="tab-pane show active" id="striped-rows-preview">
                                             <div class="form-floating mb-3">
-                                                <input name="ngaybd" type="datetime-local" class="form-control" id="floatingInput" placeholder="Ngày bắt đầu" />
+                                                <input value="{{$ngaybd}}" name="ngaybd" type="datetime-local" class="form-control" id="floatingInput" placeholder="Ngày bắt đầu" />
                                                 <label for="floatingInput">Ngày bắt đầu</label>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                         <h5 class="mb-1">Ngày kết thúc</h5>
                                         <div class="tab-pane show active" id="striped-rows-preview">
                                             <div class="form-floating mb-3">
-                                                <input name="ngaykt" type="datetime-local" class="form-control" id="floatingInput" placeholder="Ngày kết thúc" />
+                                                <input value="{{$ngaykt}}" name="ngaykt" type="datetime-local" class="form-control" id="floatingInput" placeholder="Ngày kết thúc" />
                                                 <label for="floatingInput">Ngày kết thúc</label>
                                             </div>
                                         </div>
