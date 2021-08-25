@@ -1,7 +1,7 @@
 $("#btnAdd").click(function () {
     var id_cuoi = $(".tblChiTietKhuyenMai").find("tr:last-child").attr("data-id");
     i = parseInt(id_cuoi) + 1;
-    var tdnoidung = $(".trAppend").html();
+    var tdnoidung = $(".trAppended").html();
     var trnoidung = "<tr class=\"trAppended\" data-id=\"" + i + "\">" + tdnoidung + "</tr>"
     $(".tblChiTietKhuyenMai").append(trnoidung);
     loadIDLENTHE();
@@ -37,4 +37,24 @@ function CapNhapID() {
 $("body").delegate(".btnDelete", "click", function () {
     $(this).closest("tr").remove();
     CapNhapID();
+});
+CapNhapID();
+function myFunctionActive (event){
+    let urlRequest = $(this).data('url');
+    let that = $(this);
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Thay đổi trạng thái thành công!!',
+        showConfirmButton: false,
+        timer: 1000
+    })
+    $.ajax({
+        type:'GET',
+        url: urlRequest,
+    })
+}
+
+$(function (){
+    $(document).on('click','.active_sanphamkhuyenmai',myFunctionActive)
 });

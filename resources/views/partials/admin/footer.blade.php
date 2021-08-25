@@ -7,7 +7,7 @@
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-md-block">
-                    <a href="javascript: void(0);">Vào website</a>
+                    <a href="{{route('home')}}" target="_blank">Vào website</a>
                 </div>
             </div>
         </div>

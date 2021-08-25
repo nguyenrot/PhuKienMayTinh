@@ -9,4 +9,7 @@ class chitietkhuyenmai extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function product(){
+        return $this->belongsTo(sanpham::class,'sanpham_id');
+    }
 }

@@ -64,7 +64,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                @if($khuyenmai->active == 2)
+                                    <button name="tyle" type="button" class="btn  btn-rounded"><i class="fa fa-times"></i></button>
+                                @else
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                @endif
                             </form>
                         </div>
                     </div>

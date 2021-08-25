@@ -10,7 +10,6 @@ $(document).ready(
 function myFunctionActive (event){
     let urlRequest = $(this).data('url');
     let that = $(this);
-    console.log(that)
     $.ajax({
         type:'GET',
         url: urlRequest,

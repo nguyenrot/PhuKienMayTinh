@@ -149,5 +149,9 @@ Route::prefix('admin')->group(function () {
             'as'=>'khuyenmai.post_add_product',
             'uses'=> 'App\Http\Controllers\KhuyenMaiController@post_add_product',
         ]);
+        Route::get('/active_product/{id}',[
+            'as'=>'khuyenmai.active_product',
+            'uses'=> 'App\Http\Controllers\KhuyenMaiController@active_product',
+        ]);
     });
 });
