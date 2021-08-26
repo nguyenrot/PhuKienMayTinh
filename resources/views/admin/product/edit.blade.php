@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Cấu hình</label>
-                                    <textarea name="cauhinh" class="form-control my-editor-cauhinh">{{$sanpham->cauhinh}}</textarea>
+                                    <textarea name="cauhinh" class="form-control my-editor-cauhinh" rows="10">{{$sanpham->cauhinh}}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Mô tả</label>

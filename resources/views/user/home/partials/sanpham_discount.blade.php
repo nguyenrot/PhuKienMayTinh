@@ -11,72 +11,32 @@
             </div>
         </div>
 
-        <div class="row mt-5 pt-3">
-
-            <div class="col-md-4">
+        <div class="row mt-5 pt-3 d-flex justify-content-center">
+            @foreach($sanphamkhuyenmai as $spkm)
+            <div class="col-md-4 ">
                 <div class="card card-pricing card-pricing-recommended">
                     <div class="card-body text-center">
-                        <div class="card-pricing-plan-tag">Giảm 50%</div>
-                        <p class="card-pricing-plan-name fw-bold text-uppercase">Tên sản phẩm</p>
-                        <i class="card-pricing-icon dripicons-briefcase text-primary"></i>
-                        <h2 class="card-pricing-price">$99 <span>/ 100$</span></h2>
-                        <ul class="card-pricing-features">
-                            <li>50 GB Storage</li>
-                            <li>900 GB Bandwidth</li>
-                            <li>2 Domain</li>
-                            <li>10 User</li>
-                            <li>Email Support</li>
-                            <li>24x7 Support</li>
-                        </ul>
-                        <button class="btn btn-primary mt-4 mb-2 btn-rounded">Mua ngay</button>
+                        <div class="card-pricing-plan-tag ">Giảm {{$spkm->tyle}}%</div>
+                        <p class="card-pricing-plan-name fw-bold text-uppercase ">{{$spkm->product->tensp}}</p>
+                        <div class="avatar-lg d-flex " style="margin: auto">
+                            <div class="">
+                                <img src="{{asset($spkm->product->hinhanh)}}" alt="image" class="img-fluid img-thumbnail rounded-circle" width="120"/>
+                            </div>
+                        </div>
+                        <h3 class="card-pricing-price text-danger">
+                            {{number_format(doubleval($spkm->product->dongia) - (doubleval($spkm->product->dongia)*0.1))}} VNĐ
+                            <span class="text-dark font-13">/ {{number_format(doubleval($spkm->product->dongia))}} VNĐ</span></h3>
+                        <h5 class="cauhinh" style="min-height: 365px">
+                            {!! $spkm->product->cauhinh !!}
+                        </h5>
+                        <div class="">
+                            <a href="" class="btn btn-primary mb-2 btn-rounded">Mua ngay</a>
+                        </div>
                     </div>
                 </div>
                 <!-- end Pricing_card -->
             </div>
-            <!-- end col -->
-            <div class="col-md-4">
-                <div class="card card-pricing card-pricing-recommended">
-                    <div class="card-body text-center">
-                        <div class="card-pricing-plan-tag">Giảm 50%</div>
-                        <p class="card-pricing-plan-name fw-bold text-uppercase">Tên sản phẩm</p>
-                        <i class="card-pricing-icon dripicons-briefcase text-primary"></i>
-                        <h2 class="card-pricing-price">$99 <span>/ 100$</span></h2>
-                        <ul class="card-pricing-features">
-                            <li>50 GB Storage</li>
-                            <li>900 GB Bandwidth</li>
-                            <li>2 Domain</li>
-                            <li>10 User</li>
-                            <li>Email Support</li>
-                            <li>24x7 Support</li>
-                        </ul>
-                        <button class="btn btn-primary mt-4 mb-2 btn-rounded">Mua ngay</button>
-                    </div>
-                </div>
-                <!-- end Pricing_card -->
-            </div>
-            <!-- end col -->
-            <div class="col-md-4">
-                <div class="card card-pricing card-pricing-recommended">
-                    <div class="card-body text-center">
-                        <div class="card-pricing-plan-tag">Giảm 50%</div>
-                        <p class="card-pricing-plan-name fw-bold text-uppercase">Tên sản phẩm</p>
-                        <i class="card-pricing-icon dripicons-briefcase text-primary"></i>
-                        <h2 class="card-pricing-price">$99 <span>/ 100$</span></h2>
-                        <ul class="card-pricing-features">
-                            <li>50 GB Storage</li>
-                            <li>900 GB Bandwidth</li>
-                            <li>2 Domain</li>
-                            <li>10 User</li>
-                            <li>Email Support</li>
-                            <li>24x7 Support</li>
-                        </ul>
-                        <button class="btn btn-primary mt-4 mb-2 btn-rounded">Mua ngay</button>
-                    </div>
-                </div>
-                <!-- end Pricing_card -->
-            </div>
-            <!-- end col -->
-
+            @endforeach
         </div>
         <div class="row">
             <a href="" class="btn btn-primary">Xem thêm sản phẩm khuyến mãi<i class="mdi mdi-arrow-right ms-1"></i></a>

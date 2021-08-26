@@ -15,6 +15,7 @@
     <link href="{{asset('adminv18/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style">
     <link href="{{asset('adminv18/assets/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style">
     <link rel="stylesheet" href="{{asset('admin_resources/home/home.css')}}">
+    @yield('link_css')
 </head>
 <body class="loading" data-layout-config='{"darkMode":false}'>
 
@@ -31,8 +32,8 @@
     <!-- bundle -->
     <script src="{{asset('adminv18/assets/js/vendor.min.js')}}"></script>
     <script src="{{asset('adminv18/assets/js/app.min.js')}}"></script>
-    <script src="{{asset('admin_resources/home/home.js')}}"></script>
-
+    <script src="{{asset('admin_resources/home/search.js')}}"></script>
+    @yield('link_js')
 </body>
 
 </html>

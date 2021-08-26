@@ -117,8 +117,12 @@
                                                     <input name="tyle" type="text" id="simpleinput" class="form-control txtSoLuong" value="0">
                                                 </td>
                                                 <td>
-                                                    <input type="checkbox" id="" checked data-switch="success"/>
-                                                    <label for="" data-on-label="Yes" data-off-label="No"></label>
+                                                    @if($khuyenmai->active==0)
+                                                        <button name="tyle" type="button" class="btn  btn-rounded"><i class="fa fa-times"></i></button>
+                                                    @else
+                                                        <input type="checkbox" id="" checked data-switch="success"/>
+                                                        <label for="" data-on-label="Yes" data-off-label="No"></label>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <button name="tyle" type="button" class="btn btn-outline-dark btn-rounded btnDelete"><i class="fa fa-times"></i></button>
@@ -141,13 +145,14 @@
                                                         </select>
                                                     </td>
                                                     <td>
-                                                        <input name="tyle" type="text" id="simpleinput" class="form-control txtTyLeKhuyenMai" value="{{$chitietkhuyenmai->soluong}}">
+                                                        <input name="soluong" type="text" id="simpleinput" class="form-control txtSoLuong" value="{{$chitietkhuyenmai->soluong}}">
 
                                                     </td>
                                                     <td>
-                                                        <input name="soluong" type="text" id="simpleinput" class="form-control txtSoLuong" value="{{$chitietkhuyenmai->tyle}}">
+                                                        <input name="tyle" type="text" id="simpleinput" class="form-control txtTyLeKhuyenMai" value="{{$chitietkhuyenmai->tyle}}">
                                                     </td>
                                                     @if($khuyenmai->active!=2)
+                                                        @if($khuyenmai->active!=0)
                                                         <td class="table-action">
                                                             @if($chitietkhuyenmai->active)
                                                                 <input type="checkbox" id="{{'switch'.$chitietkhuyenmai->id}}" checked data-switch="success"/>
@@ -158,6 +163,11 @@
                                                                    data-url="{{route('khuyenmai.active_product',['id'=>$chitietkhuyenmai->id])}}" data-on-label="Yes"
                                                                    data-off-label="No" class="mb-0 d-block active_sanphamkhuyenmai"></label>
                                                         </td>
+                                                        @else
+                                                            <td>
+                                                                <button name="tyle" type="button" class="btn  btn-rounded"><i class="fa fa-times"></i></button>
+                                                            </td>
+                                                        @endif
                                                         <td>
                                                             <button name="tyle" type="button" class="btn  btn-rounded"><i class="fa fa-times"></i></button>
                                                         </td>

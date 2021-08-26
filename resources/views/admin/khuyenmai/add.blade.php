@@ -38,7 +38,7 @@
                                         <h5 class="mb-1">Tên khuyến mãi</h5>
                                         <div class="tab-pane show active" id="striped-rows-preview">
                                             <div class="form-floating mb-3">
-                                                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Tên danh mục" />
+                                                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Tên khuyến mãi" />
                                                 <label for="floatingInput">Tên danh mục</label>
                                             </div>
                                         </div>

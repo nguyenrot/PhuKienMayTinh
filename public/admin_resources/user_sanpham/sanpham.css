@@ -1,0 +1,17 @@
+.backgroud-nav{
+    background: linear-gradient(to bottom,#8669ed,#727cf5)
+}
+.background-dm-nav{
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+    background: white;
+    border-bottom: #727ef5 solid 1px;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+

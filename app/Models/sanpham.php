@@ -20,4 +20,7 @@ class sanpham extends Model
     public function menu(){
         return $this->belongsTo(hangsanxuat::class,'menu_id');
     }
+    public function khuyenmai(){
+        return $this->hasMany(chitietkhuyenmai::class,'sanpham_id');
+    }
 }

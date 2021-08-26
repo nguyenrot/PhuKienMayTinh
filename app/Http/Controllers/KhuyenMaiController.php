@@ -7,6 +7,7 @@ use App\Models\khuyenmai;
 
 use App\Models\sanpham;
 use App\Traits\DeleteModelTrait;
+use App\Traits\UpdateKhuyenMai;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -15,12 +16,14 @@ use function GuzzleHttp\Promise\all;
 
 class KhuyenMaiController extends Controller
 {
+    use UpdateKhuyenMai;
     use DeleteModelTrait;
     private $khuyenmai;
     private $sanpham;
     private $chitietkhuyenmai;
     public function __construct(khuyenmai $khuyenmai,sanpham $sanpham,chitietkhuyenmai $chitietkhuyenmai)
     {
+        $this->updateKhuyenMai();
         $this->khuyenmai = $khuyenmai;
         $this->sanpham = $sanpham;
         $this->chitietkhuyenmai = $chitietkhuyenmai;
@@ -42,6 +45,7 @@ class KhuyenMaiController extends Controller
          */
         $ngaybd = strtotime($request->ngaybd);
         $ngaykt = strtotime($request->ngaykt);
+
         $now = strtotime(now());
         $active = 0;
 
@@ -90,7 +94,7 @@ class KhuyenMaiController extends Controller
     }
     public function add_product($id){
         $spkm = [];
-        foreach ($this->chitietkhuyenmai->all() as $ctkm){
+        foreach ($this->chitietkhuyenmai->where('active',1)->get() as $ctkm){
             $spkm[] = $ctkm->sanpham_id;
         }
         $sanphams = $this->sanpham->whereNotIn('id',$spkm)->get();
@@ -105,16 +109,14 @@ class KhuyenMaiController extends Controller
         $sanpham = $request->sanpham;
         $soluong = $request->soluong;
         $tyle = $request->tyle;
-
         $chitietkhuyenmai = $this->chitietkhuyenmai->where('khuyenmai_id',$id)->get();
         if ($chitietkhuyenmai->count()!=0){
             unset($sanpham[0]);
         }
-
         foreach ($chitietkhuyenmai as $ctkm) {
             foreach ($sanpham as $key=>$spkm) {
                 if ($ctkm->sanpham_id==$spkm){
-                    $chitietkhuyenmai->find($ctkm->sanpham_id)->update([
+                    $chitietkhuyenmai->find($ctkm->id)->update([
                        'soluong'=>$request->soluong[$key],
                        'tyle'=> $request->tyle[$key],
                     ]);

@@ -59,3 +59,11 @@
 .text-overflow{
     height: 40px;
 }
+.card-sanpham{
+    display: none;
+}
+@media screen and (max-width: 991px) {
+    .card-sanpham{
+        display: inline-block;
+    }
+}

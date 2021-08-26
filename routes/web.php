@@ -155,3 +155,12 @@ Route::prefix('admin')->group(function () {
         ]);
     });
 });
+
+Route::prefix('/')->group(function (){
+    Route::prefix('sanpham')->group(function (){
+        Route::get('/',[
+           'as'=>'sanpham.index',
+           'uses'=>'App\Http\Controllers\SanphamController@index',
+        ]);
+    });
+});
