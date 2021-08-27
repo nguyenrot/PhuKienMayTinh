@@ -11,4 +11,7 @@ class danhmuc extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = [];
+    public function menu(){
+        return $this->belongsToMany(hangsanxuat::class,'sanphams','category_id','menu_id');
+    }
 }
