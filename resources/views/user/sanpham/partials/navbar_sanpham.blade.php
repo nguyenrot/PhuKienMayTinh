@@ -28,9 +28,9 @@
                     <ul class="align-items-center w-100 d-flex justify-content-between row">
                         @foreach($danhmucs as $danhmuc)
                             @foreach($danhmuc->menu as $menu)
-                            <li class="navdm nav-item col d-inline-block">
-                                <span class="nav-item-menu "><a class="font-18 fw-bold nav-link text-primary text-center " href="">{{$menu->name}}</a></span>
-                            </li>
+                                <li class="navdm nav-item col d-inline-block">
+                                    <span class="nav-item-menu "><a class="font-18 fw-bold nav-link text-primary text-center " href="">{{$menu->name}}</a></span>
+                                </li>
                             @endforeach
                         @endforeach
                     </ul>
@@ -39,9 +39,5 @@
         </div>
     </div>
 </section>
-<section>
-    <div class="container" style="min-height: 900px">
 
-    </div>
-</section>
 

@@ -15,9 +15,8 @@
             @endif
                 <div class="col-lg-4">
                     <div class="card">
-
                             <div class="demo-box text-center">
-                                <img src="{{asset($sanpham->hinhanh)}}" alt="demo-img" class="img-fluid shadow-sm rounded card-img-top">
+                                <img src="{{asset($sanpham->hinhanh)}}" alt="demo-img" class="img-fluid shadow-sm rounded card-img-top w-75 mt-3">
                                 <div class="card-body">
                                     <a href="" class="stretched-link">
                                         <h4 class="f-17 card-title text-overflow">{{$sanpham->tensp}}</h4>
