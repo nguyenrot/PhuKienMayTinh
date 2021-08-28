@@ -18,22 +18,25 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <!-- Product image -->
-                                    <a href="javascript: void(0);" class="text-center d-block mb-4">
-                                        <img src="{{asset('adminv18/assets/images/products/product-5.jpg')}}" class="img-fluid" style="max-width: 280px;" alt="Product-img">
-                                    </a>
-
-                                    <div class="d-lg-flex d-none justify-content-center">
-                                        <a href="javascript: void(0);">
-                                            <img src="{{asset('adminv18/assets/images/products/product-1.jpg')}}" class="img-fluid img-thumbnail p-2" style="max-width: 75px;" alt="Product-img">
-                                        </a>
-                                        <a href="javascript: void(0);" class="ms-2">
-                                            <img src="{{asset('adminv18/assets/images/products/product-6.jpg')}}" class="img-fluid img-thumbnail p-2" style="max-width: 75px;" alt="Product-img">
-                                        </a>
-                                        <a href="javascript: void(0);" class="ms-2">
-                                            <img src="{{asset('adminv18/assets/images/products/product-3.jpg')}}" class="img-fluid img-thumbnail p-2" style="max-width: 75px;" alt="Product-img">
-                                        </a>
+                                <div class="col-lg-6 d-flex">
+                                    <div class="sanpham-images ">
+                                        <div class="text-center d-block mb-4 active-sp">
+                                            <img src="{{asset($sanpham->hinhanh)}}" class="img-fluid hinhanh-chinh" style="max-width: 350px;" alt="Product-img">
+                                        </div>
+                                        <div class="d-lg-flex d-none justify-content-center hinhanh-chitiet">
+                                            <a href="javascript: void(0);" class="p-2 ">
+                                                <img src="{{asset($sanpham->hinhanh)}}"
+                                                     data-url="{{asset($sanpham->hinhanh)}}"
+                                                     class="img-fluid img-thumbnail p-2 active-sp image-sp" style="max-width: 75px;" alt="Product-img">
+                                            </a>
+                                            @foreach($sanpham->images as $itemImage)
+                                                <a href="javascript: void(0);" class="p-2 ">
+                                                    <img src="{{asset($itemImage->hinhanhchitiet)}}"
+                                                         data-url="{{asset($itemImage->hinhanhchitiet)}}"
+                                                         class="img-fluid img-thumbnail p-2 image-sp" style="max-width: 75px;" alt="Product-img">
+                                                </a>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -47,8 +50,9 @@
                                         <span class="text-warning mdi mdi-star"></span>
                                     </p>
 
-                                    <div class="mt-3">
-                                        <h4><span class="badge badge-success-lighten">Instock</span></h4>
+                                    <div class="mt-3 d-flex d-flex justify-content-start">
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="" class="text-success">{{$sanpham->category->name}}</a></span></h3>
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
                                     </div>
 
                                     <!-- Product description -->

@@ -7,4 +7,10 @@ $(function (){
     $('.btn-mota-close').click(function (){
         $('.modal-mota-sanpham').addClass('d-none')
     })
+    $('.image-sp').hover(function (){
+        $('.hinhanh-chitiet .active-sp').removeClass('active-sp')
+        $(this).addClass('active-sp')
+        const hinhanh = $(this).data('url');
+        $('.hinhanh-chinh').attr('src',hinhanh)
+    })
 })

@@ -1,6 +1,19 @@
 .cauhinh li{
     height: 30px;
 }
+.sanpham-images{
+    margin: auto;
+}
+.active-sp{
+    border-radius: 5px;
+    border: #7a75f2 solid 2px;
+}
+.image-sp:hover{
+    border: #7a75f2 solid 2px;
+}
+.tag{
+    padding-right: 8px;
+}
 .modal-mota-sanpham{
     position: fixed;
     display: flex;
