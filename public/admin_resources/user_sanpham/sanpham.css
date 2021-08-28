@@ -1,70 +1,8 @@
-.backgroud-nav{
-    background: linear-gradient(to bottom,#8669ed,#727cf5)
+.sanpham:hover{
+    transform: translateY(-5px);
 }
-.background-dm-nav{
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 1;
-    top: 0px;
-    background: white;
-    border-bottom: #727ef5 solid 1px;
+.sanpham:hover .hinhanh-sanpham{
+    transition: .3s ease-in-out;
+    transform: scale(1.06);
 }
 
-ul{
-    list-style: none;
-    padding: 0;
-}
-
-ul .navdm {
-    position: relative;
-}
-
-.subnav{
-    display: none;
-    left: 50px;
-    width: 100%;
-    position: absolute;
-    background: white;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-ul .navdm:hover .nav-item-menu a{
-    border-radius: 20px;
-    background: #eeeded;
-    color: #1877f2;
-}
-
-ul .navdm:hover .subnav {
-    display: block;
-    opacity: 1;
-}
-ul .navdm .subnav li{
-    height: 60px;
-    border-top: #e1e1e1 solid 1px;
-}
-ul .navdm .subnav li a {
-    line-height: 60px;
-    padding: 0 0 0 20px;
-    display: block;
-}
-ul .navdm .subnav li:hover{
-    background: #eeeded;
-    color: #1877f2;
-}
-.hang_danh_muc{
-    display: none;
-}
-
-@media screen and (max-width: 1024px) {
-    .hang_danh_muc{
-        display: block;
-    }
-    .subnav{
-        display: none!important;
-    }
-    .background-dm-nav{
-        position: unset;
-    }
-}

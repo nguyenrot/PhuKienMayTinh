@@ -162,5 +162,9 @@ Route::prefix('/')->group(function (){
            'as'=>'sanpham.index',
            'uses'=>'App\Http\Controllers\SanphamController@index',
         ]);
+        Route::get('/chitiet/{id}',[
+           'as'=>'sanpham.chitiet',
+           'uses'=> 'App\Http\Controllers\SanphamController@chitiet',
+        ]);
     });
 });

@@ -22,12 +22,13 @@
     <!-- NAVBAR -->
     @include('partials.user.navbar')
     <!-- NAVBAR END -->
-
+    @yield('danhmuc')
     @yield('content')
 
     <!-- START FOOTER -->
     @include('partials.user.footer')
     <!-- END FOOTER -->
+    <a id="button-to-top" class="btn btn-secondary rounded-3 unshow-btn"><i class="mdi mdi-arrow-up-thick"></i></a>
 
     <!-- bundle -->
     <script src="{{asset('adminv18/assets/js/vendor.min.js')}}"></script>

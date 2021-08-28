@@ -1,3 +1,6 @@
+<?php
+ $danhmucs = \App\Models\danhmuc::all();
+?>
 <section class="background-dm-nav">
     <div class="container">
         <div class="row">

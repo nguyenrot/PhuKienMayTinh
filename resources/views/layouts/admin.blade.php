@@ -55,7 +55,6 @@
 <div class="rightbar-overlay"></div>
 <!-- /End-bar -->
 
-
 <!-- bundle -->
 <script src="{{asset('adminv18/assets/js/vendor.min.js')}}"></script>
 <script src="{{asset('adminv18/assets/js/app.min.js')}}"></script>
