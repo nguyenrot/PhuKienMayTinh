@@ -6,12 +6,18 @@
             <img src="{{asset('adminv18/assets/images/logo.png')}}" alt="" class="logo-dark" >
         </a>
 
+
+        <div class="giohang">
+            <a href="" target="_blank" class="btn btn-sm btn-light btn-rounded card-sanpham">
+                <h5><i class="mdi mdi-basket me-2"></i> Giỏ hàng</h5>
+                <div class="sl-cart-sp">
+                    <span class="quality text-center "><h5 class="mt-1 text-dark">0</h5></span>
+                </div>
+            </a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <i class="mdi mdi-menu"></i>
         </button>
-        <a href="" target="_blank" class="btn btn-sm btn-light btn-rounded card-sanpham">
-            <h5><i class="mdi mdi-basket me-2"></i> Giỏ hàng</h5>
-        </a>
         <!-- menus -->
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
@@ -42,9 +48,12 @@
                 <li class="nav-item me-0">
                     <h4><a class="nav-link active" href="">Đăng ký</a></h4>
                 </li>
-                <li class="nav-item me-0">
+                <li class="nav-item me-0 giohang">
                     <a href="" target="_blank" class="btn btn-sm btn-light btn-rounded d-none d-lg-inline-flex">
-                        <h5><i class="mdi mdi-basket me-2"></i> Giỏ hàng</h5>
+                        <h5><i class="mdi mdi-basket me-2"></i>Giỏ hàng</h5>
+                        <div class="sl-cart-sp">
+                            <span class="quality text-center "><h5 class="mt-1 text-dark">0</h5></span>
+                        </div>
                     </a>
                 </li>
             </ul>

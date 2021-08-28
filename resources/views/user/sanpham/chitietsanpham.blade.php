@@ -7,6 +7,8 @@
 @endsection()
 @section('link_js_sp')
     <script src="{{asset('admin_resources/user_sanpham/chitiet.js')}}"></script>
+{{--    <script src="{{asset('adminv18/assets/js/vendor/dragula.min.js')}}"></script>--}}
+{{--    <script src="{{asset('adminv18/assets/js/ui/component.dragula.js')}}"></script>--}}
 @endsection()
 @section('content')
 
@@ -51,8 +53,8 @@
                                     </p>
 
                                     <div class="mt-3 d-flex d-flex justify-content-start">
-                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="" class="text-success">{{$sanpham->category->name}}</a></span></h3>
-                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="javascript: void(0);" class="text-success">{{$sanpham->category->name}}</a></span></h3>
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="javascript: void(0);" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
                                     </div>
 
                                     <!-- Product description -->
@@ -74,7 +76,9 @@
                                     <div class="mt-4">
                                         <h6 class="font-20 pb-2"><i class="mdi mdi-star-outline text-danger"></i> Cấu hình:</h6>
                                         <h5 class="cauhinh mt-2">
-                                            {!! $sanpham->cauhinh !!}
+                                            <div data-simplebar style="max-height: 250px;">
+                                                {!! $sanpham->cauhinh !!}
+                                            </div>
                                         </h5>
                                     </div>
                                     <!-- Product information -->
@@ -95,6 +99,95 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3 class="mb-3 mt-4">Đánh giá và bình luận</h3>
+                                </div>
+                            </div>
+                            <div class="row" data-plugin="dragula" data-containers='["company-list-left", "company-list-right"]'>
+                                <div class="col-md-6">
+                                    <div class="bg-dragula p-2 p-lg-4">
+                                        <h5 class="font-20 mt-0">Bình luận</h5>
+                                        <div data-simplebar style="max-height: 600px;">
+                                            <div id="company-list-left" class="py-2">
+                                                <div class="card mb-0 mt-2">
+                                                    <div class="card-body">
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100 overflow-hidden">
+                                                                <div class=" d-flex justify-content-between">
+                                                                    <h4 class="font-20 text-primary mb-1 mt-0">Phạm Kỷ Nguyên</h4>
+                                                                    <p class="font-16">
+                                                                        <span class="text-warning mdi mdi-star"></span>
+                                                                        <span class="text-warning mdi mdi-star"></span>
+                                                                        <span class="text-warning mdi mdi-star"></span>
+                                                                        <span class="text-warning mdi mdi-star"></span>
+                                                                        <span class="text-warning mdi mdi-star"></span>
+                                                                    </p>
+                                                                </div>
+                                                                <p class="f"> 1 phút trước </p>
+                                                                <p class="mb-0 text-muted">
+                                                                    <span class="font-18 fst-italic"><b>"</b>Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="bg-dragula p-2 p-lg-4">
+                                        <h5 class="font-20 mt-0">Hãy đánh giá và binh luận</h5>
+                                        <div id="company-list-left" class="py-2">
+                                            <div class="card mb-0 mt-2">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-start">
+                                                        <div class="w-100 overflow-hidden">
+                                                            <h4 class="font-20 text-primary mb-0 mt-0">Đánh giá</h4>
+                                                            <div class="rating">
+                                                                <input type="radio" name="rating" value="5" id="5">
+                                                                <label for="5">☆</label>
+                                                                <input type="radio" name="rating" value="4" id="4">
+                                                                <label for="4">☆</label>
+                                                                <input type="radio" name="rating" value="3" id="3">
+                                                                <label for="3">☆</label>
+                                                                <input type="radio" name="rating" value="2" id="2">
+                                                                <label for="2">☆</label>
+                                                                <input type="radio" name="rating" value="1" id="1">
+                                                                <label for="1">☆</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-start">
+                                                        <div class="w-100 overflow-hidden">
+                                                            <h4 class="font-20 text-primary mb-1 mt-0">Bình luận của bạn</h4>
+                                                            <div class="d-flex mb-2">
+                                                                <div class="w-100 border rounded">
+                                                                    <textarea name="" id="" class="form-control border-0 resize-none" placeholder="Viết bình luận" rows="5"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="float-end font-16 btn btn-sm btn-success"><i class="uil uil-message me-1"></i>Gửi</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

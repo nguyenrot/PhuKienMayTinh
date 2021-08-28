@@ -62,11 +62,7 @@
 .card-sanpham{
     display: none;
 }
-@media screen and (max-width: 991px) {
-    .card-sanpham{
-        display: inline-block;
-    }
-}
+
 #button-to-top {
     position: fixed;
     z-index: 2;
@@ -84,4 +80,29 @@
 }
 .show-btn{
     display: block;
+}
+.giohang{
+    position: relative;
+}
+.sl-cart-sp{
+    position: absolute;
+    top: -15px;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #fa5c7c;
+    border: white solid 2px;
+}
+.quality{
+    font-size: 15px;
+    line-height: 30px;
+}
+@media screen and (max-width: 991px) {
+    .card-sanpham{
+        display: inline-block;
+    }
+    .sl-cart-sp{
+        top: -12px;
+    }
 }
