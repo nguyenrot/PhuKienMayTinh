@@ -166,5 +166,17 @@ Route::prefix('/')->group(function (){
            'as'=>'sanpham.chitiet',
            'uses'=> 'App\Http\Controllers\SanphamController@chitiet',
         ]);
+        Route::get('/danhmuc/{id}',[
+           'as'=>'sanpham.danhmuc',
+           'uses'=> 'App\Http\Controllers\SanphamController@danhmuc',
+        ]);
+        Route::get('/hangsanxuat/{id}',[
+            'as'=> 'sanpham.hangsanxuat',
+            'uses'=>'App\Http\Controllers\SanphamController@hangsanxuat',
+        ]);
+        Route::get('/khuyenmai',[
+            'as'=> 'sanpham.khuyenmai',
+            'uses'=>'App\Http\Controllers\SanphamController@khuyenmai',
+        ]);
     });
 });

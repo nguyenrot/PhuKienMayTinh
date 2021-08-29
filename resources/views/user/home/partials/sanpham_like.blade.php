@@ -23,7 +23,7 @@
                     {!! $sanphamlike[0]->cauhinh !!}
                 </div>
 
-                <a href="" class="btn btn-primary btn-rounded mt-3">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
+                <a href="{{route('sanpham.chitiet',['id'=>$sanphamlike[0]->id])}}" class="btn btn-primary btn-rounded mt-3">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
 
             </div>
         </div>
@@ -38,7 +38,7 @@
                     {!! $sanphamlike[1]->cauhinh !!}
                 </div>
 
-                <a href="" class="btn btn-success btn-rounded mt-3">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
+                <a href="{{route('sanpham.chitiet',['id'=>$sanphamlike[1]->id])}}" class="btn btn-success btn-rounded mt-3">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
 
             </div>
             <div class="col-lg-5 offset-lg-1">

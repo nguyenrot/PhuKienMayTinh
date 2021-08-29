@@ -18,7 +18,7 @@
                             <div class="demo-box text-center">
                                 <img src="{{asset($sanpham->hinhanh)}}" alt="demo-img" class="img-fluid shadow-sm rounded card-img-top w-75 mt-3">
                                 <div class="card-body">
-                                    <a href="" class="stretched-link">
+                                    <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}" class="stretched-link">
                                         <h4 class="f-17 card-title text-overflow">{{$sanpham->tensp}}</h4>
                                     </a>
                                     <h5 class="card-text text-success font-">{{number_format($sanpham->dongia)}} VNĐ</h5>

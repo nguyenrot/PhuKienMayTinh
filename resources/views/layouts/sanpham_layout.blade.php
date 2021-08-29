@@ -9,6 +9,8 @@
 @endsection()
 
 @section('danhmuc')
+
     @include('user.sanpham.partials.navbar_sanpham')
+
 @endsection()
 

@@ -53,8 +53,8 @@
                                     </p>
 
                                     <div class="mt-3 d-flex d-flex justify-content-start">
-                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="javascript: void(0);" class="text-success">{{$sanpham->category->name}}</a></span></h3>
-                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="javascript: void(0);" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="{{route('sanpham.danhmuc',['id'=>$sanpham->category_id])}}" class="text-success">{{$sanpham->category->name}}</a></span></h3>
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="{{route('sanpham.hangsanxuat',['id'=>$sanpham->menu_id])}}" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
                                     </div>
 
                                     <!-- Product description -->

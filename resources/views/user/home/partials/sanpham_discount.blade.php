@@ -30,7 +30,7 @@
                             {!! $spkm->product->cauhinh !!}
                         </h5>
                         <div class="">
-                            <a href="" class="btn btn-primary mb-2 btn-rounded">Mua ngay</a>
+                            <a href="{{route('sanpham.chitiet',['id'=>$spkm->id])}}" class="btn btn-primary mb-2 btn-rounded">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
             @endforeach
         </div>
         <div class="row">
-            <a href="" class="btn btn-primary">Xem thêm sản phẩm khuyến mãi<i class="mdi mdi-arrow-right ms-1"></i></a>
+            <a href="{{route('sanpham.khuyenmai')}}" class="btn btn-primary">Xem thêm sản phẩm khuyến mãi<i class="mdi mdi-arrow-right ms-1"></i></a>
         </div>
     </div>
 </section>

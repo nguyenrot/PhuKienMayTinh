@@ -23,7 +23,7 @@
                             </div>
                         </a>
                         <div class="d-flex justify-content-around">
-                            <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}" class="btn btn-primary" target="_blank"><i class="mdi mdi-eye-outline"></i> Xem chi tiết</a>
+                            <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}" class="btn btn-primary"><i class="mdi mdi-eye-outline"></i> Xem chi tiết</a>
                             <a href="" class="btn btn-primary" target="_blank"><i class="mdi mdi-cart me-1"></i> Thêm vào giỏ hàng</a>
                         </div>
                     </div>
