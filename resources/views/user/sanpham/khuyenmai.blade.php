@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="mb-3 mt-4">Sản phẩm khuyến mãi (Chưa làm giá khuyến mãi)</h2>
+                    <h2 class="mb-3 mt-4">Sản phẩm khuyến mãi</h2>
                 </div> <!-- end col -->
             </div>
             <div class="row">
@@ -19,8 +19,9 @@
                     <div class="col-md-4">
                         <div class="card ribbon-box sanpham">
                             <div class="card-body">
-                                <div class="ribbon ribbon-danger float-start"><i class="mdi mdi-access-point"></i> Hot </div>
-                                <h3 class="text-danger float-end mt-0">{{number_format($sanpham->product->dongia)}} VNĐ</h3>
+                                <div class="ribbon ribbon-danger float-start"><i class="mdi mdi-access-point"></i> Giảm {{$sanpham->tyle}} %</div>
+                                <h3 class="text-danger float-end mt-0"><span class="text-warning">Chỉ còn :
+                                    </span>{{number_format(doubleval($sanpham->product->dongia) - (doubleval($sanpham->product->dongia)*((doubleval($sanpham->tyle))/100)))}} VNĐ</h3>
                                 <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}">
                                     <div class="ribbon-content ">
                                         <div class="d-flex justify-content-center">

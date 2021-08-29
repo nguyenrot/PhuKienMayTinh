@@ -9,6 +9,7 @@ use App\Models\sanpham;
 use App\Traits\UpdateKhuyenMai;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use function PHPUnit\Framework\isNull;
 
 class SanphamController extends Controller
 {
@@ -29,6 +30,8 @@ class SanphamController extends Controller
     public function index(){
         Paginator::useBootstrap();
         $sanphams = $this->sanpham->where('active',1)->latest()->paginate(9);
+
+
         return view('user.sanpham.index',compact('sanphams'));
     }
     public function chitiet($id){

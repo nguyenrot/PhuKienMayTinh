@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <h3 class="card-pricing-price text-danger">
-                            {{number_format(doubleval($spkm->product->dongia) - (doubleval($spkm->product->dongia)*0.1))}} VNĐ
+                            {{number_format(doubleval($spkm->product->dongia) - (doubleval($spkm->product->dongia)*((doubleval($spkm->tyle))/100)))}} VNĐ
                             <span class="text-dark font-13">/ {{number_format(doubleval($spkm->product->dongia))}} VNĐ</span></h3>
                         <h5 class="cauhinh" style="min-height: 365px">
                             {!! $spkm->product->cauhinh !!}
