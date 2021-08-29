@@ -30,8 +30,6 @@ class SanphamController extends Controller
     public function index(){
         Paginator::useBootstrap();
         $sanphams = $this->sanpham->where('active',1)->latest()->paginate(9);
-
-
         return view('user.sanpham.index',compact('sanphams'));
     }
     public function chitiet($id){

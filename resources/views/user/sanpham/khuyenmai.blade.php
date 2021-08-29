@@ -19,9 +19,8 @@
                     <div class="col-md-4">
                         <div class="card ribbon-box sanpham">
                             <div class="card-body">
-                                <div class="ribbon ribbon-danger float-start"><i class="mdi mdi-access-point"></i> Giảm {{$sanpham->tyle}} %</div>
-                                <h3 class="text-danger float-end mt-0"><span class="text-warning">Chỉ còn :
-                                    </span>{{number_format(doubleval($sanpham->product->dongia) - (doubleval($sanpham->product->dongia)*((doubleval($sanpham->tyle))/100)))}} VNĐ</h3>
+                                <div class="ribbon ribbon-success float-start"><i class="mdi mdi-access-point"></i> Giảm {{$sanpham->tyle}} %</div>
+                                <h3 class="text-danger float-end mt-0"><span class="text-warning font-16">Chỉ còn </span>{{number_format(doubleval($sanpham->product->dongia) - (doubleval($sanpham->product->dongia)*((doubleval($sanpham->tyle))/100)))}} VNĐ</h3>
                                 <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}">
                                     <div class="ribbon-content ">
                                         <div class="d-flex justify-content-center">
