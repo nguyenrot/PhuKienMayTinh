@@ -5,6 +5,8 @@
 @endsection()
 @section('link_js')
     <script src="{{asset('admin_resources/user_sanpham/danhmuc.js')}}"></script>
+    <script src="{{asset('admin_resources/user_sanpham/cart.js')}}"></script>
+    <script src="{{asset('vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
     @yield('link_js_sp')
 @endsection()
 

@@ -12,7 +12,7 @@
                         <div class="card ribbon-box sanpham">
                             <div class="card-body">
                                 <div class="ribbon ribbon-danger float-start"><i class="mdi mdi-access-point"></i> Hot </div>
-                                <h3 class="text-danger float-end mt-0">{{number_format($sanpham->dongia)}} VNĐ</h3>
+                                <h3 class="text-danger float-end mt-0 dongia-sp" data-dg="{{$sanpham->dongia}}"><span class=""></span>{{number_format($sanpham->dongia)}} VNĐ</h3>
                                 <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}">
                                     <div class="ribbon-content ">
                                         <div class="d-flex justify-content-center">
@@ -25,7 +25,7 @@
                                 </a>
                                 <div class="d-flex justify-content-around">
                                     <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}" class="btn btn-primary"><i class="mdi mdi-eye-outline"></i> Xem chi tiết</a>
-                                    <a href="" class="btn btn-primary" target="_blank"><i class="mdi mdi-cart me-1"></i> Thêm vào giỏ hàng</a>
+                                    <a href="" data-url="{{route('giohang.add',['id'=>$sanpham->id])}}" class="btn btn-primary btn-add-cart" target="_blank"><i class="mdi mdi-cart me-1"></i> Thêm vào giỏ hàng</a>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,9 @@
                         <div class="card ribbon-box sanpham">
                             <div class="card-body">
                                 <div class="ribbon ribbon-success float-start"><i class="mdi mdi-access-point"></i> Giảm {{$sanpham->khuyenmai[0]->tyle}} %</div>
-                                <h3 class="text-danger float-end mt-0"><span class="text-warning font-16">Chỉ còn </span>{{number_format(doubleval($sanpham->dongia) - (doubleval($sanpham->dongia)*((doubleval($sanpham->khuyenmai[0]->tyle))/100)))}} VNĐ</h3>
+                                <h3 class="text-danger float-end mt-0 dongia-sp" data-dg="{{doubleval($sanpham->dongia) - (doubleval($sanpham->dongia)*((doubleval($sanpham->khuyenmai[0]->tyle))/100))}}">
+                                    <span class="text-warning font-16">Chỉ còn </span>
+                                    {{number_format(doubleval($sanpham->dongia) - (doubleval($sanpham->dongia)*((doubleval($sanpham->khuyenmai[0]->tyle))/100)))}} VNĐ</h3>
                                 <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}">
                                     <div class="ribbon-content ">
                                         <div class="d-flex justify-content-center">
@@ -48,7 +50,7 @@
                                 </a>
                                 <div class="d-flex justify-content-around">
                                     <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}" class="btn btn-primary"><i class="mdi mdi-eye-outline"></i> Xem chi tiết</a>
-                                    <a href="" class="btn btn-primary" target="_blank"><i class="mdi mdi-cart me-1"></i> Thêm vào giỏ hàng</a>
+                                    <a href="" data-url="{{route('giohang.add',['id'=>$sanpham->id])}}" class="btn btn-primary btn-add-cart" target="_blank"><i class="mdi mdi-cart me-1"></i> Thêm vào giỏ hàng</a>
                                 </div>
                             </div>
                         </div>

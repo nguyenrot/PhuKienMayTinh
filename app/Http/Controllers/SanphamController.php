@@ -9,6 +9,7 @@ use App\Models\sanpham;
 use App\Traits\UpdateKhuyenMai;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 use function PHPUnit\Framework\isNull;
 
 class SanphamController extends Controller
@@ -52,5 +53,20 @@ class SanphamController extends Controller
         Paginator::useBootstrap();
         $sanphams = $this->chitietkhuyenmai->where('active',1)->latest()->paginate(9);
         return view('user.sanpham.khuyenmai',compact('sanphams'));
+    }
+    public function timkiem(Request $request){
+        $search = $request->searchsp;
+        $id_danhmuc = 0;
+        $id_menu = 0;
+        $sp = $this->sanpham->where('active',1);
+        $danhmuc = $this->danhmuc->where('name','like','%'.$search.'%')->first();
+        $hangsanxuat = $this->hangsanxuat->where('name','like','%'.$search.'%')->first();
+        if (!empty($danhmuc)) $id_danhmuc=$danhmuc->id;
+        if (!empty($hangsanxuat)) $id_menu=$hangsanxuat->id;
+        $sanphams = $sp->where('tensp','like','%'.$search.'%')
+                        ->orwhere('category_id',$id_danhmuc)
+                        ->orwhere('menu_id',$id_menu)
+                        ->latest()->paginate(9);
+        return view('user.sanpham.timkiem',compact('sanphams','search'));
     }
 }

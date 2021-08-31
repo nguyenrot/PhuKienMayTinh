@@ -178,5 +178,19 @@ Route::prefix('/')->group(function (){
             'as'=> 'sanpham.khuyenmai',
             'uses'=>'App\Http\Controllers\SanphamController@khuyenmai',
         ]);
+        Route::get('/timkiem}',[
+            'as' => 'sanpham.timkiem',
+            'uses' => 'App\Http\Controllers\SanphamController@timkiem'
+        ]);
+    });
+    Route::prefix('giohang')->group(function (){
+        Route::get('/',[
+            'as'=>'giohang.index',
+            'uses'=> 'App\Http\Controllers\GioHangController@index'
+        ]);
+        Route::get('/add-cart/{id}',[
+           'as'=>'giohang.add',
+           'uses'=> 'App\Http\Controllers\GioHangController@addCart'
+        ]);
     });
 });

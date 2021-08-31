@@ -7,8 +7,7 @@
 @endsection()
 @section('link_js_sp')
     <script src="{{asset('admin_resources/user_sanpham/chitiet.js')}}"></script>
-{{--    <script src="{{asset('adminv18/assets/js/vendor/dragula.min.js')}}"></script>--}}
-{{--    <script src="{{asset('adminv18/assets/js/ui/component.dragula.js')}}"></script>--}}
+
 @endsection()
 @section('content')
 
@@ -57,22 +56,29 @@
                                         <h3 class="tag"><span class="badge badge-success-lighten"><a href="{{route('sanpham.hangsanxuat',['id'=>$sanpham->menu_id])}}" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
                                     </div>
 
-                                    <!-- Product description -->
+                                    @if($sanpham->khuyenmai()->where('active',1)->count()==0)
                                     <div class="mt-4">
                                         <h6 class="font-20"><i class="mdi mdi-star-outline text-danger"></i> Đơn giá:</h6>
-                                        <h3> {{number_format($sanpham->dongia)}} VNĐ</h3>
+                                        <h3 class="dongia-sp" data-dg="{{$sanpham->dongia}}"> {{number_format($sanpham->dongia)}} VNĐ</h3>
                                     </div>
+                                    @else
+                                        <div class="mt-4">
+                                            <h6 class="font-20"><i class="mdi mdi-star-outline text-danger"></i> Đơn giá: <span class="text-danger">Giảm {{$sanpham->khuyenmai[0]->tyle}} %</span></h6>
+                                            <h3 class="dongia-sp" data-dg="{{doubleval($sanpham->dongia) - (doubleval($sanpham->dongia)*((doubleval($sanpham->khuyenmai[0]->tyle))/100))}}">
+                                                <span class="text-warning font-16">Chỉ còn </span>
+                                                {{number_format(doubleval($sanpham->dongia) - (doubleval($sanpham->dongia)*((doubleval($sanpham->khuyenmai[0]->tyle))/100)))}} VNĐ</h3>
+                                        </div>
+                                    @endif
 
-                                    <!-- Quantity -->
                                     <div class="mt-4">
                                         <h6 class="font-20"><i class="mdi mdi-star-outline text-danger"></i> Số lượng:</h6>
                                         <div class="d-flex">
-                                            <input type="number" min="1" value="1" class="form-control" placeholder="Qty" style="width: 90px;">
-                                            <button type="button" class="btn btn-danger ms-2"><i class="mdi mdi-cart me-1"></i>Thêm vào giỏ hàng</button>
+                                            <input type="number" min="1" value="1" class="form-control soluong-sp" placeholder="Qty" style="width: 90px;">
+                                            <button type="button" data-url="{{route('giohang.add',['id'=>$sanpham->id])}}" class="btn btn-danger ms-2 btn-add-cart"><i class="mdi mdi-cart me-1"></i>Thêm vào giỏ hàng</button>
                                         </div>
                                     </div>
 
-                                    <!-- Product description -->
+
                                     <div class="mt-4">
                                         <h6 class="font-20 pb-2"><i class="mdi mdi-star-outline text-danger"></i> Cấu hình:</h6>
                                         <h5 class="cauhinh mt-2">
@@ -81,7 +87,7 @@
                                             </div>
                                         </h5>
                                     </div>
-                                    <!-- Product information -->
+
                                     <div class="mt-1 d-grid">
                                         <button type="button" class="btn btn btn-xs btn-outline-dark btn-rounded btn-mota"><span class="font-20">Mô tả sản phẩm</span></button>
                                         <div class="modal-mota-sanpham d-none">
