@@ -11,12 +11,14 @@ class AdminLoginController extends Controller
     use Authenticatable;
     public function login(){
         if (auth()->check()){
-            return redirect()->route('dashboard.index');
+            if (auth()->user()->loaitk===3 && auth()->user()->loaitk===1){
+                return redirect()->route('dashboard.index');
+            }
+            return redirect()->route('dangxuatAdmin');
         }
         return view('admin.login');
     }
     public function postLoginAdmin(Request $request){
-
         $remember = $request->has('remember_me') ? true:false;
         if (auth()->attempt([
             'email' =>$request->email,
@@ -25,5 +27,11 @@ class AdminLoginController extends Controller
             return redirect()->route('dashboard.index');
         }
         return redirect()->to('admin');
+    }
+    public function logout(Request $request){
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('danhnhapAdmin');
     }
 }

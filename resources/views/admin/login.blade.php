@@ -62,7 +62,7 @@
 </div>
 
 <footer class="footer footer-alt">
-    2021 - Phụ kiện máy tính ROT
+    2021 - Phụ kiện máy tính NEW SHOP
 </footer>
 
 <script src="{{asset('adminv18/assets/js/vendor.min.js')}}"></script>

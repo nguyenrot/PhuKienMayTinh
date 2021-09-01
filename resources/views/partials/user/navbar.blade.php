@@ -50,10 +50,10 @@
             <!-- right menu -->
             <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item me-0">
-                    <h4><a class="nav-link active" href="">Đăng nhập</a></h4>
+                    <h4><a class="nav-link active" href="{{route('dangnhap')}}">Đăng nhập</a></h4>
                 </li>
                 <li class="nav-item me-0">
-                    <h4><a class="nav-link active" href="">Đăng ký</a></h4>
+                    <h4><a class="nav-link active" href="{{route('dangky')}}">Đăng ký</a></h4>
                 </li>
                 <li class="nav-item me-0 giohang">
                     <a href="{{route('giohang.index')}}" target="_blank" class="btn btn-sm btn-light btn-rounded d-none d-lg-inline-flex">
