@@ -33,6 +33,85 @@ function addToCart(e){
         }
     })
 }
+function updateCart(e){
+    e.preventDefault();
+    let urlUpdate = $('.update-cart-url').data('url');
+    let id = $(this).data('id');
+    let soluong = $(this).parents('tr').find('input.soluong').val();
+    $.ajax({
+        type:"GET",
+        url:urlUpdate,
+        data: {id:id,soluong:soluong},
+        success: function (data){
+            if(data.code===200){
+                $('.cart_wrapper').html(data.cartPartials)
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Cập nhập giỏ hàng thành công!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        },
+        error:function (){
+
+        }
+    })
+}
+function deleteCart(e){
+    e.preventDefault();
+    let urlDelete = $('.cart').data('url');
+    let id = $(this).data('id');
+    Swal.fire({
+        title: 'Bạn có muốn xóa?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Xác nhận xóa!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:"GET",
+                    url:urlDelete,
+                    data:{id:id},
+                    success:function (data){
+                        if(data.code===200) {
+                            $('.cart_wrapper').html(data.cartPartials)
+                            Swal.fire(
+                                'Đã xóa!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    },
+                    error:function (){
+
+                    }
+
+                })
+            }
+        })
+    const btn_cancel = $(".swal2-cancel.swal2-styled.swal2-default-outline").text('Hủy');
+    btn_cancel.removeAttr('style')
+    btn_cancel.removeClass('swal2-styled');
+    btn_cancel.removeClass('swal2-default-outline');
+    btn_cancel.addClass('btn');
+    btn_cancel.addClass('btn-danger')
+    btn_cancel.addClass('btn-lg')
+    btn_cancel.addClass('m-2')
+    const btn_success = $(".swal2-confirm.swal2-styled.swal2-default-outline").text('Xác nhận xóa');
+    btn_success.removeAttr('style')
+    btn_success.removeClass('swal2-styled');
+    btn_success.removeClass('swal2-default-outline');
+    btn_success.addClass('btn');
+    btn_success.addClass('btn-success')
+    btn_success.addClass('btn-lg')
+    btn_success.addClass('m-2')
+}
 $(function (){
-        $('.btn-add-cart').on('click',addToCart);
+        $(document).on('click','.update-cart',updateCart)
+        $(document).on('click','.btn-add-cart',addToCart)
+        $(document).on('click','.delete-cart',deleteCart)
 })

@@ -111,10 +111,10 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input name="soluong" type="text" id="simpleinput" class="form-control txtTyLeKhuyenMai" value="0">
+                                                    <input name="soluong" type="text" id="simpleinput" class="form-control txtSoLuong" value="0">
                                                 </td>
                                                 <td>
-                                                    <input name="tyle" type="text" id="simpleinput" class="form-control txtSoLuong" value="0">
+                                                    <input name="tyle" type="text" id="simpleinput" class="form-control txtTyLeKhuyenMai" value="0">
                                                 </td>
                                                 <td>
                                                     @if($khuyenmai->active==0)

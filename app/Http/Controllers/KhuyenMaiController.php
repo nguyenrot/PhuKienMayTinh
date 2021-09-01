@@ -63,6 +63,7 @@ class KhuyenMaiController extends Controller
         ]);
         return redirect()->route('khuyenmai.index');
     }
+
     public function edit($id){
         $khuyenmai = $this->khuyenmai->find($id);
         $ngaybd =Carbon::parse($khuyenmai->ngaybd)->format('Y-m-d').'T'.Carbon::parse($khuyenmai->ngaybd)->format('H:i');

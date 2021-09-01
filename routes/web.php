@@ -192,5 +192,13 @@ Route::prefix('/')->group(function (){
            'as'=>'giohang.add',
            'uses'=> 'App\Http\Controllers\GioHangController@addCart'
         ]);
+        Route::get('/update-cart',[
+           'as'=>'giohang.update',
+           'uses'=> 'App\Http\Controllers\GioHangController@update'
+        ]);
+        Route::get('/delete-cart',[
+            'as'=>'giohang.delete',
+            'uses'=> 'App\Http\Controllers\GioHangController@delete'
+        ]);
     });
 });
