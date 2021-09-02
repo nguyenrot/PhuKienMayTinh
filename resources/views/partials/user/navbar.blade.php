@@ -48,17 +48,17 @@
             </ul>
 
             <!-- right menu -->
-            <ul class="navbar-nav ms-auto align-items-center">
+            <ul class="navbar-nav ms-auto align-items-center ">
                 @if(auth()->check())
                     <li class="nav-item me-0">
                         <h4><a class="nav-link active" href="">Đơn hàng</a></h4>
                     </li>
-                    <li class="nav-item dropdown me-0">
+                    <li class="nav-item dropdown me-0 taikhoan">
                         <h4>
                             <a class="nav-link dropdown-toggle active" href="javascript: void(0);"><i class="font-24 uli uil-user-circle"></i> {{auth()->user()->name}}</a>
                             <ul class="user-navbar">
                                 <li class="text-center mt-2">Xin chào</li>
-                                <li><a href="#"><i class="mdi mdi-account-circle me-1"></i>Tài khoản của bạn</a></li>
+                                <li><a href="{{route('taikhoanuser.index')}}"><i class="mdi mdi-account-circle me-1"></i>Tài khoản của bạn</a></li>
                                 <li><a href="{{route('dangxuat')}}"><i class="mdi mdi-logout me-1"></i>Đăng xuất</a></li>
                             </ul>
                         </h4>
@@ -81,6 +81,33 @@
                             <span class="quality text-center "><h5 class="mt-1 text-dark soluong">{{$totalSoluong}}</h5></span>
                         </div>
                     </a>
+                    <div class=" giohang-sub align-items-center">
+                        <div class="row d-flex justify-content-between border-bottom text-center">
+                            <div class="col-md-6"><h4>Giỏ hàng</h4></div>
+                            <div class="col-md-6"><h4><a href="">xóa tất cả</a></h4></div>
+                        </div>
+
+                        <ul class="">
+                            @if(empty($carts))
+                                <li class="nav-item align-items-center text-primary"><h4>Giỏ hàng trống</h4></li>
+                            @else
+                                @foreach($carts as $id=>$cartItem)
+                                <li class="nav-item align-items-center text-primary">
+                                    <div class="row">
+                                        <div class="col-md-12"><a href="{{route('sanpham.chitiet',['id'=>$id])}}" class="font-18 fw-bold">{{$cartItem['name']}}</a></div>
+                                    </div>
+                                    <div class="row d-flex justify-content-between">
+                                        <div class="col-md-10"><span class="fw-bold font-16 text-success">Số lượng : {{$cartItem['soluong']}}</span></div>
+                                        <div class="col-md-2 "><a href="" class="float-end text-danger fw-bold font-16">Xóa</a></div>
+                                    </div>
+                                </li>
+                                @endforeach
+                            @endif
+                        </ul>
+                        <div class="row text-center border-top ">
+                            <h4 class="mt-2"><a href="{{route('giohang.index')}}">Xem giỏ hàng</a></h4>
+                        </div>
+                    </div>
                 </li>
             </ul>
 

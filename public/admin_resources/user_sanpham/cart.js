@@ -87,7 +87,6 @@ function deleteCart(e){
                         }
                     },
                     error:function (){
-
                     }
 
                 })

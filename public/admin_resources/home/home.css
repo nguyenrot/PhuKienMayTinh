@@ -112,20 +112,4 @@
         display: block;
     }
 }
-.user-navbar{
-    display: none;
-    right: 27rem;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0 ,0 ,0.5) 0px 0px 10px;
-    list-style: none;
-    padding: 10px;
-    background: white;
-    position: fixed;
-    z-index: 3;
-}
-.user-navbar li{
-    height: 40px;
-}
-.dropdown:hover .user-navbar{
-    display: block;
-}
+

@@ -175,6 +175,13 @@ Route::prefix('admin')->middleware('checkAdmin')->group(function () {
             ]);
         });
 
+        Route::prefix('taikhoan')->group(function (){
+            Route::get('/',[
+                'as'=>'taikhoan.index',
+                'uses'=> 'App\Http\Controllers\TaiKhoanAdminController@index',
+            ]);
+        });
+
     });
 
 Route::prefix('/')->middleware('checkUser','verified')->group(function (){
@@ -220,6 +227,12 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
         Route::get('/delete-cart',[
             'as'=>'giohang.delete',
             'uses'=> 'App\Http\Controllers\GioHangController@delete'
+        ]);
+    });
+    Route::prefix('taikhoan')->group(function (){
+        Route::get('/',[
+            'as'=>'taikhoanuser.index',
+            'uses'=> 'App\Http\Controllers\TaiKhoanUserController@index',
         ]);
     });
 });

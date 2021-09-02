@@ -72,7 +72,7 @@
                                 <a href="{{route('sanpham.index')}}" class="btn text-dark d-none d-sm-inline-block btn-link fw-semibold font-20">
                                     <i class="mdi mdi-arrow-left"></i>Mua thêm sản phẩm</a>
                             </div>
-                            @if(isset($carts))
+                            @if(!empty($carts))
                                 @if(auth()->check())
                                     <div class="col-sm-6">
                                         <div class="text-sm-end">
