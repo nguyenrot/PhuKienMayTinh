@@ -22,7 +22,7 @@ class checkAdmin
             if (Auth::user()->loaitk===1 || Auth::user()->loaitk===3){
                 return $next($request);
             }
-            return redirect()->route('dangxuatAdmin');
+            return redirect()->route('home');
         }
         return redirect()->route('danhnhapAdmin');
     }

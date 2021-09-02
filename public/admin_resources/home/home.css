@@ -98,6 +98,9 @@
     font-size: 15px;
     line-height: 30px;
 }
+.dangxuat{
+    display: none;
+}
 @media screen and (max-width: 991px) {
     .card-sanpham{
         display: inline-block;
@@ -105,4 +108,24 @@
     .sl-cart-sp{
         top: -12px;
     }
+    .dangxuat{
+        display: block;
+    }
+}
+.user-navbar{
+    display: none;
+    right: 27rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0 ,0 ,0.5) 0px 0px 10px;
+    list-style: none;
+    padding: 10px;
+    background: white;
+    position: fixed;
+    z-index: 3;
+}
+.user-navbar li{
+    height: 40px;
+}
+.dropdown:hover .user-navbar{
+    display: block;
 }

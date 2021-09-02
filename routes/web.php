@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+//Đăng nhập đăng xuất
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('verified');
 Route::get('/admin', 'App\Http\Controllers\AdminLoginController@login')->name('danhnhapAdmin');
 Route::get('/admin-logout', 'App\Http\Controllers\AdminLoginController@logout')->name('dangxuatAdmin');
 Route::post('/admin', 'App\Http\Controllers\AdminLoginController@postLoginAdmin');
@@ -24,8 +26,22 @@ Route::post('/dangky', 'App\Http\Controllers\HomeController@dangkyPost')->name('
 Route::get('/dangxuat', 'App\Http\Controllers\HomeController@dangxuat')->name('dangxuat');
 
 
+//Gửi mail
+Route::get('/email/verify', function () {
+    return view('vefiyemail');
+})->middleware('auth')->name('verification.notice');
 
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect()->route('home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+//Các trang chức năng
 Route::prefix('admin')->middleware('checkAdmin')->group(function () {
 
         Route::prefix('dashboard')->group(function () {
@@ -161,10 +177,7 @@ Route::prefix('admin')->middleware('checkAdmin')->group(function () {
 
     });
 
-
-
-
-Route::prefix('/')->middleware('checkUser')->group(function (){
+Route::prefix('/')->middleware('checkUser','verified')->group(function (){
     Route::prefix('sanpham')->group(function (){
         Route::get('/',[
            'as'=>'sanpham.index',

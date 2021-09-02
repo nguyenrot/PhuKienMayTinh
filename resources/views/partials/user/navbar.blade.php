@@ -15,7 +15,7 @@
             <img src="{{asset('adminv18/assets/images/logo.png')}}" alt="" class="logo-dark" >
         </a>
         <div class="giohang">
-            <a href="{{route('giohang.index')}}" target="_blank" class="btn btn-sm btn-light btn-rounded card-sanpham">
+            <a href="{{route('giohang.index')}}" class="btn btn-sm btn-light btn-rounded card-sanpham">
                 <h5><i class="mdi mdi-basket me-2"></i> Giỏ hàng</h5>
                 <div class="sl-cart-sp">
                     <span class="quality text-center "><h5 class="mt-1 text-dark soluong">{{$totalSoluong}}</h5></span>
@@ -49,14 +49,33 @@
 
             <!-- right menu -->
             <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item me-0">
-                    <h4><a class="nav-link active" href="{{route('dangnhap')}}">Đăng nhập</a></h4>
-                </li>
-                <li class="nav-item me-0">
-                    <h4><a class="nav-link active" href="{{route('dangky')}}">Đăng ký</a></h4>
-                </li>
+                @if(auth()->check())
+                    <li class="nav-item me-0">
+                        <h4><a class="nav-link active" href="">Đơn hàng</a></h4>
+                    </li>
+                    <li class="nav-item dropdown me-0">
+                        <h4>
+                            <a class="nav-link dropdown-toggle active" href="javascript: void(0);"><i class="font-24 uli uil-user-circle"></i> {{auth()->user()->name}}</a>
+                            <ul class="user-navbar">
+                                <li class="text-center mt-2">Xin chào</li>
+                                <li><a href="#"><i class="mdi mdi-account-circle me-1"></i>Tài khoản của bạn</a></li>
+                                <li><a href="{{route('dangxuat')}}"><i class="mdi mdi-logout me-1"></i>Đăng xuất</a></li>
+                            </ul>
+                        </h4>
+                    </li>
+                    <li class="nav-item me-0 dangxuat">
+                        <h4><a class="nav-link active" href="{{route('dangxuat')}}">Đăng xuất</a></h4>
+                    </li>
+                @else
+                    <li class="nav-item me-0">
+                        <h4><a class="nav-link active" href="{{route('dangnhap')}}">Đăng nhập</a></h4>
+                    </li>
+                    <li class="nav-item me-0">
+                        <h4><a class="nav-link active" href="{{route('dangky')}}">Đăng ký</a></h4>
+                    </li>
+                @endif
                 <li class="nav-item me-0 giohang">
-                    <a href="{{route('giohang.index')}}" target="_blank" class="btn btn-sm btn-light btn-rounded d-none d-lg-inline-flex">
+                    <a href="{{route('giohang.index')}}" class="btn btn-sm btn-light btn-rounded d-none d-lg-inline-flex">
                         <h5><i class="mdi mdi-basket me-2"></i>Giỏ hàng</h5>
                         <div class="sl-cart-sp">
                             <span class="quality text-center "><h5 class="mt-1 text-dark soluong">{{$totalSoluong}}</h5></span>

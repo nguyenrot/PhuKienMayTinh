@@ -21,8 +21,8 @@ class checkUser
             if (Auth::user()->loaitk===2){
                 return $next($request);
             }
-            return redirect()->route('dangxuat');
+            return redirect()->route('home');
         }
-        return redirect()->route('home');
+        return $next($request);
     }
 }

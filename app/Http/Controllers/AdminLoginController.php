@@ -14,7 +14,7 @@ class AdminLoginController extends Controller
             if (auth()->user()->loaitk===3 && auth()->user()->loaitk===1){
                 return redirect()->route('dashboard.index');
             }
-            return redirect()->route('dangxuatAdmin');
+            return redirect()->route('home');
         }
         return view('admin.login');
     }
@@ -30,8 +30,8 @@ class AdminLoginController extends Controller
     }
     public function logout(Request $request){
         auth()->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+//        $request->session()->invalidate();
+//        $request->session()->regenerateToken();
         return redirect()->route('danhnhapAdmin');
     }
 }
