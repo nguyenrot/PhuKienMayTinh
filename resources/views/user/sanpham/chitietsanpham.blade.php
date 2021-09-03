@@ -7,7 +7,7 @@
 @endsection()
 @section('link_js_sp')
     <script src="{{asset('admin_resources/user_sanpham/chitiet.js')}}"></script>
-
+    <script src="{{asset('admin_resources/user_sanpham/binhluan.js')}}"></script>
 @endsection()
 @section('content')
 
@@ -125,28 +125,8 @@
                                         <h5 class="font-20 mt-0">Bình luận</h5>
                                         <div data-simplebar style="max-height: 600px;">
                                             <div id="company-list-left" class="py-2">
-                                                <div class="card mb-0 mt-2">
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-start">
-                                                            <div class="w-100 overflow-hidden">
-                                                                <div class=" d-flex justify-content-between">
-                                                                    <h4 class="font-20 text-primary mb-1 mt-0">Phạm Kỷ Nguyên</h4>
-                                                                    <p class="font-16">
-                                                                        <span class="text-warning mdi mdi-star"></span>
-                                                                        <span class="text-warning mdi mdi-star"></span>
-                                                                        <span class="text-warning mdi mdi-star"></span>
-                                                                        <span class="text-warning mdi mdi-star"></span>
-                                                                        <span class="text-warning mdi mdi-star"></span>
-                                                                    </p>
-                                                                </div>
-                                                                <p class="f"> 1 phút trước </p>
-                                                                <p class="mb-0 text-muted">
-                                                                    <span class="font-18 fst-italic"><b>"</b>Disrupt pork belly poutine, asymmetrical tousled succulents selfies. You probably haven't heard of them tattooed master cleanse live-edge keffiyeh.</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+                                                @include('user.sanpham.partials.binhluan')
 
                                             </div>
                                         </div>
@@ -157,39 +137,13 @@
                                     <div class="bg-dragula p-2 p-lg-4">
                                         <h5 class="font-20 mt-0">Hãy đánh giá và binh luận</h5>
                                         <div id="company-list-left" class="py-2">
-                                            <div class="card mb-0 mt-2">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-start">
-                                                        <div class="w-100 overflow-hidden">
-                                                            <h4 class="font-20 text-primary mb-0 mt-0">Đánh giá</h4>
-                                                            <div class="rating">
-                                                                <input type="radio" name="rating" value="5" id="5">
-                                                                <label for="5">☆</label>
-                                                                <input type="radio" name="rating" value="4" id="4">
-                                                                <label for="4">☆</label>
-                                                                <input type="radio" name="rating" value="3" id="3">
-                                                                <label for="3">☆</label>
-                                                                <input type="radio" name="rating" value="2" id="2">
-                                                                <label for="2">☆</label>
-                                                                <input type="radio" name="rating" value="1" id="1">
-                                                                <label for="1">☆</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-start">
-                                                        <div class="w-100 overflow-hidden">
-                                                            <h4 class="font-20 text-primary mb-1 mt-0">Bình luận của bạn</h4>
-                                                            <div class="d-flex mb-2">
-                                                                <div class="w-100 border rounded">
-                                                                    <textarea name="" id="" class="form-control border-0 resize-none" placeholder="Viết bình luận" rows="5"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="float-end font-16 btn btn-sm btn-success"><i class="uil uil-message me-1"></i>Gửi</button>
+                                            @if(auth()->check())
+                                                <div class="danhgia-partials">
+                                                    @include('user.sanpham.partials.danhgia')
                                                 </div>
-                                            </div>
-
+                                            @else
+                                                <a href="{{route('dangnhap')}}" class="btn btn-danger ms-2">Đăng nhập để bình luận</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

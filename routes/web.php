@@ -211,6 +211,7 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
             'uses' => 'App\Http\Controllers\SanphamController@timkiem'
         ]);
     });
+
     Route::prefix('giohang')->group(function (){
         Route::get('/',[
             'as'=>'giohang.index',
@@ -229,6 +230,14 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
             'uses'=> 'App\Http\Controllers\GioHangController@delete'
         ]);
     });
+
+    Route::prefix('binhluan')->group(function (){
+        Route::post('/',[
+           'as'=>'binhluan.add',
+           'uses'=>'App\Http\Controllers\BinhLuanController@add',
+        ]);
+    });
+
     Route::prefix('taikhoan')->group(function (){
         Route::get('/',[
             'as'=>'taikhoanuser.index',

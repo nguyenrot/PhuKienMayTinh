@@ -84,26 +84,11 @@
                     <div class=" giohang-sub align-items-center">
                         <div class="row d-flex justify-content-between border-bottom text-center">
                             <div class="col-md-6"><h4>Giỏ hàng</h4></div>
-                            <div class="col-md-6"><h4><a href="">xóa tất cả</a></h4></div>
+                            <div class="col-md-6"><h4><a href="" class="delete-subcart">xóa tất cả</a></h4></div>
                         </div>
-
-                        <ul class="">
-                            @if(empty($carts))
-                                <li class="nav-item align-items-center text-primary"><h4>Giỏ hàng trống</h4></li>
-                            @else
-                                @foreach($carts as $id=>$cartItem)
-                                <li class="nav-item align-items-center text-primary">
-                                    <div class="row">
-                                        <div class="col-md-12"><a href="{{route('sanpham.chitiet',['id'=>$id])}}" class="font-18 fw-bold">{{$cartItem['name']}}</a></div>
-                                    </div>
-                                    <div class="row d-flex justify-content-between">
-                                        <div class="col-md-10"><span class="fw-bold font-16 text-success">Số lượng : {{$cartItem['soluong']}}</span></div>
-                                        <div class="col-md-2 "><a href="" class="float-end text-danger fw-bold font-16">Xóa</a></div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            @endif
-                        </ul>
+                        <div class="subcart" data-url="{{route('giohang.delete')}}">
+                            @include('user.giohang.partials.subcart')
+                        </div>
                         <div class="row text-center border-top ">
                             <h4 class="mt-2"><a href="{{route('giohang.index')}}">Xem giỏ hàng</a></h4>
                         </div>

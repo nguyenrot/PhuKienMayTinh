@@ -24,6 +24,7 @@ function addToCart(e){
         dataType: 'json',
         success:function (data){
             if(data.code===200){
+                $('.subcart').html(data.subCartPartials)
                 $soluong = $('.soluong').first().text();
                 $('.soluong').text(parseInt($soluong)+soluong);
             }
@@ -45,6 +46,8 @@ function updateCart(e){
         success: function (data){
             if(data.code===200){
                 $('.cart_wrapper').html(data.cartPartials)
+                $('.soluong').text(data.soluongCart)
+                $('.subcart').html(data.subCartPartials)
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -79,6 +82,8 @@ function deleteCart(e){
                     success:function (data){
                         if(data.code===200) {
                             $('.cart_wrapper').html(data.cartPartials)
+                            $('.soluong').text(data.soluongCart)
+                            $('.subcart').html(data.subCartPartials)
                             Swal.fire(
                                 'Đã xóa!',
                                 'Your file has been deleted.',

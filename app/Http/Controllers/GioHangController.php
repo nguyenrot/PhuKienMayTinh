@@ -32,9 +32,12 @@ class GioHangController extends Controller
             ];
         }
         session()->put('cart',$cart);
+        $carts = session()->get('cart');
+        $subCartPartials = view('user.giohang.partials.subcart',compact('carts'))->render();
         return response()->json([
             'code'=>200,
-            'message'=>'success'
+            'message'=>'success',
+            'subCartPartials'=>$subCartPartials,
         ],200);
     }
     public function update(Request $request){
@@ -43,8 +46,15 @@ class GioHangController extends Controller
         session()->put('cart',$carts);
         $carts = session()->get('cart');
         $cartPartials = view('user.giohang.partials.cart',compact('carts'))->render();
+        $subCartPartials = view('user.giohang.partials.subcart',compact('carts'))->render();
+        $tongsoluong = 0;
+        foreach ($carts as $cartItem) {
+            $tongsoluong+=$cartItem['soluong'];
+        }
         return response()->json([
            'cartPartials'=>$cartPartials,
+            'soluongCart'=>$tongsoluong,
+            'subCartPartials'=>$subCartPartials,
             'code'=>200,
         ],200);
     }
@@ -58,8 +68,15 @@ class GioHangController extends Controller
         session()->put('cart',$carts);
         $carts = session()->get('cart');
         $cartPartials = view('user.giohang.partials.cart',compact('carts'))->render();
+        $subCartPartials = view('user.giohang.partials.subcart',compact('carts'))->render();
+        $tongsoluong = 0;
+        foreach ($carts as $cartItem) {
+            $tongsoluong+=$cartItem['soluong'];
+        }
         return response()->json([
             'cartPartials'=>$cartPartials,
+            'subCartPartials'=>$subCartPartials,
+            'soluongCart'=>$tongsoluong,
             'code'=>200,
         ],200);
     }
