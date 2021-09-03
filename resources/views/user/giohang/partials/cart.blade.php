@@ -76,7 +76,7 @@
                                 @if(auth()->check())
                                     <div class="col-sm-6">
                                         <div class="text-sm-end">
-                                            <a href="javascript:void(0);" class="btn btn-danger font-20">
+                                            <a href="{{route('dathang')}}" class="btn btn-danger font-20">
                                                 <i class="mdi mdi-cart-plus me-1"></i>Đặt hàng</a>
                                         </div>
                                     </div>

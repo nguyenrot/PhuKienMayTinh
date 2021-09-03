@@ -238,6 +238,13 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
         ]);
     });
 
+    Route::prefix('dathang')->group(function (){
+        Route::get('/',[
+            'as'=>'dathang',
+            'uses'=>'App\Http\Controllers\DatHangController@dathang',
+        ]);
+    });
+
     Route::prefix('taikhoan')->group(function (){
         Route::get('/',[
             'as'=>'taikhoanuser.index',
