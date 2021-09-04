@@ -5,6 +5,9 @@
 @section('link_css_sp')
 
 @endsection()
+@section('link_js_sp')
+    <script src="{{asset('admin_resources/dathang/donhang.js')}}"></script>
+@endsection()
 @section('content')
 
     <section>

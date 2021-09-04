@@ -14,9 +14,9 @@
             <td>{{$donhang->id}}</td>
             <td>{{auth()->user()->email}}</td>
             <td>{{$donhang->phone}}</td>
-            <td><i class="mdi mdi-circle text-primary"></i> Đã hủy</td>
+            <td><i class="mdi mdi-circle text-danger"></i> Đã hủy</td>
             <td>
-                <a href="javascript: void(0);" class="action-icon font-16"> <i class="mdi mdi-eye"></i>Xem</a>
+                <a href="{{route('donhang.view',['id'=>$donhang->id])}}" class="action-icon font-16"> <i class="mdi mdi-eye"></i>Xem</a>
             </td>
         </tr>
     @endforeach

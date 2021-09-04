@@ -25,4 +25,27 @@ class DonHangController extends Controller
         }
         return redirect()->route('home');
     }
+    public function delete($id){
+        $donhang = $this->donhang->find($id);
+        if ($donhang->trangthai==1){
+            if($donhang->user_id==auth()->user()->id){
+                $donhang->update([
+                    'trangthai'=>0,
+                ]);
+            }
+            return redirect()->route('donhang.index');
+        }
+        return redirect()->route('donhang.index');
+    }
+    public function view($id){
+        $donhang = $this->donhang->find($id);
+        if (isset($donhang)){
+            if($donhang->user_id==auth()->user()->id){
+                $chitietdonhang = $donhang->chitietdonhang;
+                return view('user.donhang.view',compact('donhang','chitietdonhang'));
+            }
+            return redirect()->route('donhang.index');
+        }
+        return redirect()->route('donhang.index');
+    }
 }

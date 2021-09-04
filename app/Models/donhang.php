@@ -9,5 +9,7 @@ class donhang extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
+    public function chitietdonhang(){
+        return $this->hasMany(chitietdonhang::class,'donhang_id');
+    }
 }

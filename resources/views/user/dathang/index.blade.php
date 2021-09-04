@@ -46,7 +46,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="new-adr-phone" class="form-label  font-16">Số điện thoại <span class="text-danger">*</span></label>
-                                                            <input class="form-control" name="phone" type="text" placeholder="Nhập số điện thoại liên hệ" id="new-adr-phone">
+                                                            <input class="form-control" name="phone" type="text" placeholder="Nhập số điện thoại liên hệ" id="new-adr-phone" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -54,7 +54,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="new-adr-address" class="form-label  font-16">Địa chỉ</label>
-                                                            <input name="diachi" class="form-control" type="text" placeholder="Nhập địa chỉ nhận hàng" id="new-adr-address">
+                                                            <input name="diachi" class="form-control" type="text" placeholder="Nhập địa chỉ nhận hàng" id="new-adr-address" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -62,7 +62,7 @@
                                                     <div class="col-md-4">
                                                         <div class="mb-3">
                                                             <label for="new-adr-town-city" class="form-label  font-16">Tỉnh / Thành phố</label>
-                                                            <select data-toggle="select2" title="Country" name="thanhpho" class="thanhpho">
+                                                            <select data-toggle="select2" title="Country" name="thanhpho" class="thanhpho" required>
                                                                 <option value="0">Chọn ...</option>
                                                             </select>
                                                         </div>
@@ -70,14 +70,14 @@
                                                     <div class="col-md-4">
                                                         <div class="mb-3">
                                                             <label for="new-adr-state" class="form-label  font-16">Quận / Huyện / Thị xã</label>
-                                                            <select data-toggle="select2" title="Country" name="quan" class="thixa">
+                                                            <select data-toggle="select2" title="Country" name="quan" class="thixa" required>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="mb-3">
                                                             <label for="new-adr-zip-postal" class="form-label  font-16">Phường / Xã</label>
-                                                            <select data-toggle="select2" title="Country" name="phuong" class="phuong">
+                                                            <select data-toggle="select2" title="Country" name="phuong" class="phuong" required>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -128,12 +128,12 @@
                                                     @php
                                                         $total = 0;
                                                     @endphp
-                                                    @foreach($hoadon as $item)
+                                                    @foreach($hoadon as $id=>$item)
                                                     @php
                                                         $total += doubleval($item['soluong']*doubleval($item['dongia']));
                                                     @endphp
                                                     <div class="row">
-                                                        <div class="col-md-12"><h5><a href="" class="font-18">{{$item['name']}}</a></h5></div>
+                                                        <div class="col-md-12"><h5><a href="{{route('sanpham.chitiet',['id'=>$id])}}" class="font-18">{{$item['name']}}</a></h5></div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-8">

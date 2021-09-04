@@ -16,8 +16,8 @@
             <td>{{$donhang->phone}}</td>
             <td><i class="mdi mdi-circle text-primary"></i> Chờ duyệt</td>
             <td>
-                <a href="javascript: void(0);" class="action-icon font-16"> <i class="mdi mdi-eye"></i>Xem</a>
-                <a href="javascript: void(0);" class="action-icon font-16"> <i class="mdi mdi-delete"></i>Hủy</a>
+                <a href="{{route('donhang.view',['id'=>$donhang->id])}}" class="action-icon font-16"> <i class="mdi mdi-eye"></i>Xem</a>
+                <a href="{{route('donhang.delete',['id'=>$donhang->id])}}" class="action-icon font-16 btn-delete-dh"> <i class="mdi mdi-delete "></i>Hủy</a>
             </td>
         </tr>
     @endforeach

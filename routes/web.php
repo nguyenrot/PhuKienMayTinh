@@ -258,6 +258,14 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
            'as'=>'donhang.index',
            'uses'=>'App\Http\Controllers\DonHangController@index',
         ]);
+        Route::get('/{id}',[
+            'as'=>'donhang.view',
+            'uses'=>'App\Http\Controllers\DonHangController@view',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'donhang.delete',
+            'uses'=>'App\Http\Controllers\DonHangController@delete',
+        ]);
     });
 
     Route::prefix('taikhoan')->group(function (){
