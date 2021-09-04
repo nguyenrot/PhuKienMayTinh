@@ -6,7 +6,6 @@
 
 @endsection()
 @section('content')
-
     <section>
         <div class="container cart_wrapper">
             @include('user.giohang.partials.cart')

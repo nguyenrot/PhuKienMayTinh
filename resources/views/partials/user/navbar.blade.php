@@ -51,7 +51,7 @@
             <ul class="navbar-nav ms-auto align-items-center ">
                 @if(auth()->check())
                     <li class="nav-item me-0">
-                        <h4><a class="nav-link active" href="">Đơn hàng</a></h4>
+                        <h4><a class="nav-link active" href="{{route('donhang.index')}}">Đơn hàng</a></h4>
                     </li>
                     <li class="nav-item dropdown me-0 taikhoan">
                         <h4>
@@ -89,8 +89,9 @@
                         <div class="subcart" data-url="{{route('giohang.delete')}}">
                             @include('user.giohang.partials.subcart')
                         </div>
-                        <div class="row text-center border-top ">
-                            <h4 class="mt-2"><a href="{{route('giohang.index')}}">Xem giỏ hàng</a></h4>
+                        <div class="row d-flex justify-content-between text-center">
+                            <div class="col-md-6"><h4><a href="{{route('giohang.index')}}">Xem giỏ hàng</a></h4></div>
+                            <div class="col-md-6"><h4><a href="{{route('dathang')}}">Đặt hàng</a></h4></div>
                         </div>
                     </div>
                 </li>

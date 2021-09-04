@@ -20,7 +20,7 @@ class DatHangController extends Controller
     }
     public function dathang(){
         if(!auth()->check()){
-            return redirect()->route('home');
+            return redirect()->route('giohang.index');
         }
         $carts = session()->get('cart');
         if (empty($carts)){

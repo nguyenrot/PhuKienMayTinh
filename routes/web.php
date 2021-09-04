@@ -253,7 +253,12 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
         ]);
     });
 
-
+    Route::prefix('donhang')->group(function (){
+        Route::get('/',[
+           'as'=>'donhang.index',
+           'uses'=>'App\Http\Controllers\DonHangController@index',
+        ]);
+    });
 
     Route::prefix('taikhoan')->group(function (){
         Route::get('/',[
