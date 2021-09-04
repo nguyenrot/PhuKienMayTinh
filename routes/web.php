@@ -236,6 +236,10 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
            'as'=>'binhluan.add',
            'uses'=>'App\Http\Controllers\BinhLuanController@add',
         ]);
+        Route::get('/delete',[
+            'as'=>'binhluan.delete',
+            'uses'=>'App\Http\Controllers\BinhLuanController@delete',
+        ]);
     });
 
     Route::prefix('dathang')->group(function (){
@@ -243,7 +247,13 @@ Route::prefix('/')->middleware('checkUser','verified')->group(function (){
             'as'=>'dathang',
             'uses'=>'App\Http\Controllers\DatHangController@dathang',
         ]);
+        Route::post('/',[
+           'as'=>'dathangpost',
+            'uses'=>'App\Http\Controllers\DatHangController@dathangpost',
+        ]);
     });
+
+
 
     Route::prefix('taikhoan')->group(function (){
         Route::get('/',[

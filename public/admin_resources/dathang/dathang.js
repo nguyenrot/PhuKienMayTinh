@@ -36,5 +36,29 @@ fetch('https://provinces.open-api.vn/api/')
     .catch(error => console.error(error))
 
 
-
+$("#form-dathang").submit(function (e){
+    let url = $('#form-dathang').attr('action');
+    let urlNext = $('#form-dathang').data('value');
+    $.ajax({
+        type:"POST",
+        url:url,
+        data:$('#form-dathang').serialize(),
+        dataType:"json",
+        success:function (data){
+            if (data.code===200){
+                Swal.fire({
+                    position: 'Center',
+                    icon: 'success',
+                    title: 'Đặt hàng thành công',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                setTimeout(function() {
+                    window.location.href = urlNext;
+                }, 1500);
+            }
+        }
+    })
+    e.preventDefault();
+})
 

@@ -17,8 +17,8 @@
                     </div>
                     @if(auth()->check())
                     @if(auth()->user()->id===$binhluan->user->id)
-                    <div class="col-md-2">
-                        <a href="" class="fw-bold">Xóa</a>
+                    <div class="col-md-2" data-url="{{route('binhluan.delete')}}">
+                        <a href="" data-id="{{$binhluan->id}}" class="fw-bold btn-delete-bl">Xóa</a>
                     </div>
                     @endif
                     @endif

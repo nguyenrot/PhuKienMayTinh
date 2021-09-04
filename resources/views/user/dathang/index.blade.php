@@ -25,8 +25,9 @@
                                     <div class="row">
                                         <div class="col-lg-7">
                                             <h3 class="mt-4">Địa chỉ</h3>
-                                            <p class="font-16 text-muted mb-4">Điền vào biểu mẫu bên dưới để chúng tôi có thể gửi cho bạn hóa đơn của đơn đặt hàng.</p>
-                                            <form>
+                                            <p class="font-16 text-muted mb-4">Điền vào biểu mẫu bên dưới để chúng tôi có thể gửi đơn hàng cho bạn.</p>
+                                            <form id="form-dathang" action="{{route('dathangpost')}}" method="post" data-value="{{'donhang'}}">
+                                                @csrf
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="mb-3">
@@ -45,18 +46,18 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="new-adr-phone" class="form-label  font-16">Số điện thoại <span class="text-danger">*</span></label>
-                                                            <input class="form-control" type="text" placeholder="Nhập số điện thoại liên hệ" id="new-adr-phone">
+                                                            <input class="form-control" name="phone" type="text" placeholder="Nhập số điện thoại liên hệ" id="new-adr-phone">
                                                         </div>
                                                     </div>
-                                                </div> <!-- end row -->
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="new-adr-address" class="form-label  font-16">Địa chỉ</label>
-                                                            <input class="form-control" type="text" placeholder="Nhập địa chỉ nhận hàng" id="new-adr-address">
+                                                            <input name="diachi" class="form-control" type="text" placeholder="Nhập địa chỉ nhận hàng" id="new-adr-address">
                                                         </div>
                                                     </div>
-                                                </div> <!-- end row -->
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="mb-3">
@@ -80,7 +81,15 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                </div> <!-- end row -->
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label  font-16">Ghi chú</label>
+                                                            <textarea name="ghichu" class="form-control" placeholder="Nhập ghi chú của bạn" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <h4 class="mt-4  font-16">Phương thức thanh toán</h4>
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -97,16 +106,15 @@
 
                                                 <div class="row mt-4">
                                                     <div class="col-sm-6">
-                                                        <a href="{{route('giohang.index')}}" class="btn text-muted d-none d-sm-inline-block btn-link fw-semibold">
+                                                        <a href="{{route('giohang.index')}}" class="btn text-muted d-none d-sm-inline-block font-18 btn-link fw-semibold">
                                                             <i class="mdi mdi-arrow-left"></i> Trở lại giỏ hàng </a>
                                                     </div> <!-- end col -->
                                                     <div class="col-sm-6">
                                                         <div class="text-sm-end">
-                                                            <a href="apps-ecommerce-checkout.html" class="btn btn-danger">
-                                                                <i class="mdi mdi-cash-multiple me-1"></i> Đặt hàng </a>
+                                                            <button type="submit" class="btn btn-primary rounded font-18"><i class="mdi mdi-cash-multiple me-1"></i> Đặt hàng </button>
                                                         </div>
-                                                    </div> <!-- end col -->
-                                                </div> <!-- end row -->
+                                                    </div>
+                                                </div>
                                             </form>
                                         </div>
                                         <div class="col-lg-5">
@@ -114,18 +122,34 @@
                                                 <h3 class=" mb-3">Hóa đơn</h3>
                                                 <div class="row">
                                                     <div class="col-md-7 text-center"><h5>Tên sản phẩm</h5></div>
-                                                    <div class="col-md-5 text-center"><h5>Thành tiền (VNĐ)</h5></div>
+                                                    <div class="col-md-5"><h5 class="float-end">Thành tiền (VNĐ)</h5></div>
+                                                    <hr>
                                                 </div>
+                                                    @php
+                                                        $total = 0;
+                                                    @endphp
                                                     @foreach($hoadon as $item)
+                                                    @php
+                                                        $total += doubleval($item['soluong']*doubleval($item['dongia']));
+                                                    @endphp
                                                     <div class="row">
-                                                        <div class="col-md-7"><a href=""></a></h5></div>
-                                                        <div class="col-md-5 float-end"><h5 class="float-end">Thành tiền (VNĐ)</h5></div>
+                                                        <div class="col-md-12"><h5><a href="" class="font-18">{{$item['name']}}</a></h5></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-8">
+                                                            <h6>{{$item['soluong']}} x {{number_format($item['dongia'])}}</h6>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <h5 class="float-end font-16">{{number_format($item['soluong']*doubleval($item['dongia']))}}</h5>
+                                                        </div>
                                                     </div>
                                                     @endforeach
-
-                                                <!-- end table-responsive -->
-                                            </div> <!-- end .border-->
-
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-md-8"><h5 class="float-end">Tổng cộng:</h5></div>
+                                                        <div class="col-md-4"><h5 class="float-end font-16">{{number_format($total)}} VNĐ</h5></div>
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                             </div>
